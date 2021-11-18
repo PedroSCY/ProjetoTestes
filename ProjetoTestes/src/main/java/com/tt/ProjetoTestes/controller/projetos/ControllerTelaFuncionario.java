@@ -1,7 +1,7 @@
 package com.tt.ProjetoTestes.controller.projetos;
 
-import facades.casosdeuso.FacadePagamentos;
-import model.entidades.RegistroPagamento;
+import com.tt.ProjetoTestes.facades.casosdeuso.FacadePagamentos;
+import com.tt.ProjetoTestes.model.entidades.RegistroPagamento;
 
 /**
  * 

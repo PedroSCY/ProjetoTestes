@@ -1,8 +1,7 @@
 package com.tt.ProjetoTestes.controller.autenticacao;
 
-import facades.casosdeuso.FacadeCRUDFuncionarios;
-import view.autenticacao.TelaCadastroEstacionamento;
-import view.autenticacao.TelaPrincipalAutenticacao;
+import com.tt.ProjetoTestes.view.autenticacao.TelaCadastroEstacionamento;
+import com.tt.ProjetoTestes.view.autenticacao.TelaPrincipalAutenticacao;
 
 /**
  * 

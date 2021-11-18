@@ -14,8 +14,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import controller.autenticacao.ControllerTelaAutenticacao;
-import view.projetos.OuvinteFocoJTextField;
+import com.tt.ProjetoTestes.controller.autenticacao.ControllerTelaAutenticacao;
+import com.tt.ProjetoTestes.view.projetos.OuvinteFocoJTextField;
+
+
 /**
  * 
  * @author NPG

@@ -10,8 +10,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
-import controller.autenticacao.ControllerTelaCadastroEstacionamento;
-import view.projetos.OuvinteFocoJTextField;
+
+import com.tt.ProjetoTestes.controller.autenticacao.ControllerTelaCadastroEstacionamento;
+import com.tt.ProjetoTestes.view.projetos.OuvinteFocoJTextField;
+
 
 public class TelaCadastroEstacionamento extends JFrame{
 

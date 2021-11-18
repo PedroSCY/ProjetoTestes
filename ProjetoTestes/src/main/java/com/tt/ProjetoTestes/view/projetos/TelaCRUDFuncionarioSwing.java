@@ -8,7 +8,8 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
-import controller.projetos.ControllerTelaCRUDFuncionarios;
+
+import com.tt.ProjetoTestes.controller.projetos.ControllerTelaCRUDFuncionarios;
 
 /**
  * 

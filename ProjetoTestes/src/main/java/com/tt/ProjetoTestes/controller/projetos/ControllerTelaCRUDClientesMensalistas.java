@@ -1,8 +1,8 @@
 package com.tt.ProjetoTestes.controller.projetos;
 
-import facades.casosdeuso.FacadeHandleClienteMensalista;
-import model.entidades.ClienteMensalista;
-import util.ValidadoraFormatoEmail;
+import com.tt.ProjetoTestes.facades.casosdeuso.FacadeHandleClienteMensalista;
+import com.tt.ProjetoTestes.model.entidades.ClienteMensalista;
+import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
 
 /**
  * 

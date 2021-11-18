@@ -3,16 +3,13 @@ package com.tt.ProjetoTestes.facades.casosdeuso;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-import model.entidades.ClienteMensalista;
-import model.entidades.Funcionario;
-import model.entidades.RegistroPagamento;
-import persistencia.DAOCentralDoSistema;
-import persistencia.DAOClienteMensalista;
-import persistencia.DAOFuncionario;
+import com.tt.ProjetoTestes.model.entidades.ClienteMensalista;
+import com.tt.ProjetoTestes.model.entidades.Funcionario;
+import com.tt.ProjetoTestes.model.entidades.RegistroPagamento;
+import com.tt.ProjetoTestes.util.CentralDoSistema;
+import com.tt.ProjetoTestes.util.ValidadoraDatas;
+
 //import persistencia.dao.DAORegistroPagamento;
-import persistencia.DAORegistroPagamento;
-import util.CentralDoSistema;
-import util.ValidadoraDatas;
 
 public class FacadePagamentos {
 

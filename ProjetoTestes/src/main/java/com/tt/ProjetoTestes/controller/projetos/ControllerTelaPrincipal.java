@@ -1,7 +1,7 @@
 package com.tt.ProjetoTestes.controller.projetos;
 
-import view.autenticacao.TelaPrincipalAutenticacao;
-import view.projetos.TelaPrincipal;
+import com.tt.ProjetoTestes.view.autenticacao.TelaPrincipalAutenticacao;
+import com.tt.ProjetoTestes.view.projetos.TelaPrincipal;
 
 /**
  * 

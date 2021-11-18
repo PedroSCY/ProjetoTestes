@@ -9,8 +9,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import model.entidades.RegistroPagamento;
-import util.FactorySwingComponents;
+import com.tt.ProjetoTestes.model.entidades.RegistroPagamento;
+import com.tt.ProjetoTestes.util.FactorySwingComponents;
+
 
 /**
  * 

@@ -1,12 +1,12 @@
 package com.tt.ProjetoTestes.facades.casosdeuso;
 
-import util.ValidadoraFormatoEmail;
 
 import java.util.Set;
 
+import com.tt.ProjetoTestes.model.entidades.ClienteMensalista;
+import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
+
 //import dao.DAOClienteMensalista;
-import model.entidades.ClienteMensalista;
-import persistencia.DAOClienteMensalista;
 
 public class FacadeHandleClienteMensalista {
 

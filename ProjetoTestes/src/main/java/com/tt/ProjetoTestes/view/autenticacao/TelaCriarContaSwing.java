@@ -13,8 +13,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
-import controller.autenticacao.ControllerTelaCriarConta;
-import view.projetos.OuvinteFocoJTextField;
+import com.tt.ProjetoTestes.controller.autenticacao.ControllerTelaCriarConta;
+import com.tt.ProjetoTestes.view.projetos.OuvinteFocoJTextField;
+
+
 /**
  * 
  * @author NPG

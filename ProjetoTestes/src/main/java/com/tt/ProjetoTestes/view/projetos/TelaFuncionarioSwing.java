@@ -8,7 +8,8 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import controller.projetos.ControllerTelaFuncionario;
+
+import com.tt.ProjetoTestes.controller.projetos.ControllerTelaFuncionario;
 
 /**
  * 

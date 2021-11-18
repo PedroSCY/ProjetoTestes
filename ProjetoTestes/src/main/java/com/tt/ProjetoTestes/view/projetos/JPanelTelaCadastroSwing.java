@@ -13,9 +13,10 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
 
-import model.entidades.Pessoa;
+import com.tt.ProjetoTestes.model.entidades.Pessoa;
+import com.tt.ProjetoTestes.model.entidades.RegistroPagamento;
+
 //import model.projetos.ItemProjeto;
-import model.entidades.RegistroPagamento;
 
 /**
  * 

@@ -4,14 +4,15 @@ package com.tt.ProjetoTestes.controller.projetos;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import facades.casosdeuso.FacadeCRUDFuncionarios;
-import facades.casosdeuso.FacadeGerarRelatorios;
+import com.tt.ProjetoTestes.facades.casosdeuso.FacadeCRUDFuncionarios;
+import com.tt.ProjetoTestes.facades.casosdeuso.FacadeGerarRelatorios;
+import com.tt.ProjetoTestes.model.entidades.Funcionario;
+import com.tt.ProjetoTestes.util.ValidadoraDatas;
+import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
+
 //import model.autenticacao.RegistradorSessaoLogin;
-import model.entidades.Funcionario;
-import util.ValidadoraDatas;
 //import model.projetos.Edital;
 //import model.projetos.TiposItemProjeto;
-import util.ValidadoraFormatoEmail;
 
 
 /**

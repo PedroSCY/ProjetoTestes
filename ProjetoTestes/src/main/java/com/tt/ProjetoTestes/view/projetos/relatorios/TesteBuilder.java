@@ -12,7 +12,7 @@ import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
-import util.FactorySwingComponents;
+import com.tt.ProjetoTestes.util.FactorySwingComponents;
 
 /**
  * 
@@ -27,6 +27,7 @@ public class TesteBuilder {
 //	private static final InterfacePartesMontagem montadorFormatoSwing = new MontadorRelatorioSwing();
 //	
 	public static void main(String[] args) {
+		
 		try {			
 //			gerarRelatorioHTMLEdital();
 //			gerarRelatorioSwingEdital();

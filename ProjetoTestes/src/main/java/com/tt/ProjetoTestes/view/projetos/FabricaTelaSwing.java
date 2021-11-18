@@ -1,11 +1,12 @@
 package com.tt.ProjetoTestes.view.projetos;
 
-import view.autenticacao.TelaAutenticacao;
-import view.autenticacao.TelaAutenticacaoSwing;
+import com.tt.ProjetoTestes.view.autenticacao.TelaAutenticacao;
+import com.tt.ProjetoTestes.view.autenticacao.TelaAutenticacaoSwing;
+import com.tt.ProjetoTestes.view.autenticacao.TelaCriarConta;
+import com.tt.ProjetoTestes.view.autenticacao.TelaCriarContaSwing;
+
 //import view.autenticacao.TelaConfiguracaoAdmin;
 //import view.autenticacao.TelaConfiguracaoAdminSwing;
-import view.autenticacao.TelaCriarConta;
-import view.autenticacao.TelaCriarContaSwing;
 
 /**
  * 

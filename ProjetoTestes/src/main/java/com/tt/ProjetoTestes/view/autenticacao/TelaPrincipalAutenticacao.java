@@ -9,10 +9,12 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import controller.autenticacao.ControllerTelaPrincipalAutenticacao;
-import util.FactorySwingComponents;
-import view.projetos.FabricaTela;
-import view.projetos.FabricaTelaSwing;
+import com.tt.ProjetoTestes.controller.autenticacao.ControllerTelaPrincipalAutenticacao;
+import com.tt.ProjetoTestes.util.FactorySwingComponents;
+import com.tt.ProjetoTestes.view.projetos.FabricaTela;
+import com.tt.ProjetoTestes.view.projetos.FabricaTelaSwing;
+
+
 
 /**
  * 

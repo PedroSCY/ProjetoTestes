@@ -1,11 +1,11 @@
 package com.tt.ProjetoTestes.facades.casosdeuso;
 
-import util.ValidadoraFormatoEmail;
 
 import java.util.Set;
 
-import model.entidades.Funcionario;
-import persistencia.DAOFuncionario;
+import com.tt.ProjetoTestes.model.entidades.Funcionario;
+import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
+
 
 public class FacadeCRUDFuncionarios {
 

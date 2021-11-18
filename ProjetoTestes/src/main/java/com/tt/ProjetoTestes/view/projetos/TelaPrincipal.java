@@ -8,8 +8,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
-import controller.projetos.ControllerTelaPrincipal;
-import view.autenticacao.TelaCadastroEstacionamento;
+
+import com.tt.ProjetoTestes.controller.projetos.ControllerTelaPrincipal;
+import com.tt.ProjetoTestes.view.autenticacao.TelaCadastroEstacionamento;
+
 /**
  * 
  * @author NPG
