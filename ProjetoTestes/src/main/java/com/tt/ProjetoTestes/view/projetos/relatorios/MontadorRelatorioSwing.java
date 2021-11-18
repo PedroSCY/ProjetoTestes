@@ -12,7 +12,6 @@ import javax.swing.JScrollPane;
 import com.tt.ProjetoTestes.model.entidades.RegistroPagamento;
 import com.tt.ProjetoTestes.util.FactorySwingComponents;
 
-
 /**
  * 
  * @author NPG
@@ -25,7 +24,6 @@ public class MontadorRelatorioSwing implements InterfacePartesMontagem {
 	
 	private Font fonte = new Font("Arial", Font.PLAIN, 16);
 	private Color color = new Color(230, 230, 230);
-	
 	
 	public void gerarRelatorio( Set<RegistroPagamento> pagamentos) throws Exception {
 		iniciar();
@@ -72,4 +70,5 @@ public class MontadorRelatorioSwing implements InterfacePartesMontagem {
 			e.printStackTrace();
 		}
 	}
+
 }

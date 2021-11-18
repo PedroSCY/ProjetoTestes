@@ -1,9 +1,8 @@
 package com.tt.ProjetoTestes.facades.casosdeuso;
 
-import model.entidades.Funcionario;
-import persistencia.DAOFuncionario;
+import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
+
 //import persistencia.dao.DAOFuncionario;
-import util.ValidadoraFormatoEmail;
 
 public class FacadeLogin {
 

@@ -2,7 +2,8 @@ package com.tt.ProjetoTestes.view.projetos.relatorios;
 
 import java.util.Set;
 
-import model.entidades.RegistroPagamento;
+import com.tt.ProjetoTestes.model.entidades.RegistroPagamento;
+
 
 /**
  * 

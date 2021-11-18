@@ -4,8 +4,9 @@ import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import model.entidades.RegistroPagamento;
-import util.ValidadoraDatas;
+import com.tt.ProjetoTestes.model.entidades.RegistroPagamento;
+import com.tt.ProjetoTestes.util.ValidadoraDatas;
+
 
 /**
  * 
