@@ -29,7 +29,7 @@ public class CentralDoSistema {
 
 
 	private static File arquivoCentral = new File("Arquivo_de_configuracao.xml");;
-	private static XStream xstream = new XStream(new DomDriver("UTF-8"));
+	//private static XStream xstream = new XStream(new DomDriver("UTF-8"));
 
 	private CentralDoSistema() {
 		//		
@@ -52,7 +52,7 @@ public class CentralDoSistema {
 			if(arquivoCentral.exists()) {
 				
 				FileInputStream fis = new FileInputStream(arquivoCentral);
-				return (CentralDoSistema) xstream.fromXML(fis);
+				//return (CentralDoSistema) xstream.fromXML(fis);
 				
 			}
 			
