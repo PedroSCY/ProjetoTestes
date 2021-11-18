@@ -4,9 +4,16 @@ import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
 public class Funcionario extends Pessoa {
+	@Column(name = "MATRICULA_PESSOA")
 	private long matricula;
+	//@Column(name = "")
 	private boolean isGerente;
+	//@Column(name = "")
 	private Set<RegistroPagamento> registrosRealizados;
 	
 	public Funcionario(String nome, String email, String senha, long cpf, long matricula, boolean isGerente) {

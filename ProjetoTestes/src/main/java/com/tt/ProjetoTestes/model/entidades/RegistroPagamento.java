@@ -3,13 +3,30 @@ package com.tt.ProjetoTestes.model.entidades;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class RegistroPagamento {
-	private float valorPago;
-	private Funcionario funcionario;
-	private LocalDateTime data;
-	private String placaVeiculo;
-	private boolean isNoEstacionamento; //TODO - atualizar UML
+	
+	@Id
+	@Column(name = "ID_REGISTRO_PAGAMENTO")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private long id;
+	@Column(name = "VALOR_REGISTRO_PAGAMENTO")
+	private float valorPago;
+	//@Column(name = "ID_REGISTRO_PAGAMENTO")
+	private Funcionario funcionario;
+	@Column(name = "DATA_REGISTRO_PAGAMENTO")
+	private LocalDateTime data;
+	@Column(name = "PLACA_REGISTRO_PAGAMENTO")
+	private String placaVeiculo;
+	//@Column(name = "ID_REGISTRO_PAGAMENTO")
+	private boolean isNoEstacionamento; //TODO - atualizar UML
+	
 	
 	public RegistroPagamento() {
 		System.out.println("OPA CHEGUEI AQUI");

@@ -1,11 +1,26 @@
 package com.tt.ProjetoTestes.model.entidades;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-
+@Entity
 public abstract class Pessoa {
+	
+	@Id
+	@Column(name = "ID_PESSOA")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private long id;
+	@Column(name = "NOME_PESSOA")
 	private String nome;
+	@Column(name = "EMAIL_PESSOA")
 	private String email;
+	@Column(name = "SENHA_PESSOA")
 	private String senha;
+	@Column(name = "CPF_PESSOA")
 	private long cpf;
+	
 	
 	public String getNome() {
 		return nome;
