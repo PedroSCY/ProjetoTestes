@@ -44,7 +44,7 @@ public class FacadePagamentos {
 		registroPagamento = daoRegistroPagamento.consultarRegistro(id);
 		
 		registroPagamento.setValorPago(valorPago);
-		registroPagamento.setIsNoEstacionamento(false);
+		registroPagamento.setNoEstacionamento(false);
 		registroPagamento.setFuncionario(funcionario);
 		
 				

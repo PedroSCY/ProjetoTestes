@@ -4,59 +4,49 @@ import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "TB_FUNCIONARIO")
+@PrimaryKeyJoinColumn(name = "id")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Funcionario extends Pessoa {
-	@Column(name = "MATRICULA_PESSOA")
+	
+	@Column(name = "MATRICULA")
 	private long matricula;
-	//@Column(name = "")
+	
+	@Column(name = "ISGERENTE")
 	private boolean isGerente;
-	//@Column(name = "")
-	private Set<RegistroPagamento> registrosRealizados;
 	
-	public Funcionario(String nome, String email, String senha, long cpf, long matricula, boolean isGerente) {
-		super(nome, email, senha, cpf);
-		this.matricula = matricula;
-		this.isGerente = isGerente;
-		this.registrosRealizados = new LinkedHashSet<RegistroPagamento>();
-	}
-	
-	public long getMatricula() {
-		return matricula;
-	}
-	public void setMatricula(long matricula) {
-		this.matricula = matricula;
-	}
-	
-	public boolean isGerente() {
-		return isGerente;
-	}
-	public void setGerente(boolean isGerente) {
-		this.isGerente = isGerente;
-	}
-	
-	public Set<RegistroPagamento> getRegistrosRealizados() {
-		return registrosRealizados;
-	}
-	public void setRegistrosRealizados(Set<RegistroPagamento> registrosRealizados) {
-		this.registrosRealizados = registrosRealizados;
-	}
-	
-	public void addRegistroPagamento(RegistroPagamento registro) {
-		this.registrosRealizados.add(registro);
-	}
+	@OneToMany(cascade = CascadeType.MERGE, mappedBy = "funcionario") 
+	private Set<RegistroPagamento> registrosRealizados = new LinkedHashSet<RegistroPagamento>();
 	
 	//TODO - autualizar UML
 	public RegistroPagamento registrarPagamento(float valorPago, String placaVeiculo, Funcionario funcionario) {
-		
+
 		RegistroPagamento registroPagamento = new RegistroPagamento(valorPago, funcionario, LocalDateTime.now(), placaVeiculo);
-		registroPagamento.setIsNoEstacionamento(true);
+		registroPagamento.setNoEstacionamento(true);
 		
 		registrosRealizados.add(registroPagamento);
 		
 		return registroPagamento;
+	}
+	
+	public Funcionario(String nome, String email, String senha, long CPF, long matricula, boolean isGerente) {
+		super(nome, email, senha, CPF);
+		this.matricula = matricula;
+		this.isGerente = isGerente;
 	}
 	
 }

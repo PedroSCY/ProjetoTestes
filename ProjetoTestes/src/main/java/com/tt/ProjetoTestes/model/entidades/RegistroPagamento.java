@@ -8,79 +8,48 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
+@Table(name = "TB_REGISTROPAGAMENTO")
+@Builder
+@Data
+@AllArgsConstructor
 public class RegistroPagamento {
 	
 	@Id
-	@Column(name = "ID_REGISTRO_PAGAMENTO")
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private long id;
-	@Column(name = "VALOR_REGISTRO_PAGAMENTO")
+	
+	@Column(name = "VALOR_PAGO")
 	private float valorPago;
-	//@Column(name = "ID_REGISTRO_PAGAMENTO")
+	
+	@ManyToOne
 	private Funcionario funcionario;
-	@Column(name = "DATA_REGISTRO_PAGAMENTO")
+	
+	@Column(name = "DATA")
 	private LocalDateTime data;
-	@Column(name = "PLACA_REGISTRO_PAGAMENTO")
+	
+	@Column(name = "PLACA_VEICULO")
 	private String placaVeiculo;
-	//@Column(name = "ID_REGISTRO_PAGAMENTO")
-	private boolean isNoEstacionamento; //TODO - atualizar UML
+	
+	@Column(name = "ESTACIONADO")
+	private boolean isNoEstacionamento; 
 	
 	
 	public RegistroPagamento() {
-		System.out.println("OPA CHEGUEI AQUI");
 		this.id = System.currentTimeMillis();
-		System.out.println(System.currentTimeMillis());
-		System.out.println(getId());
-	}
-
-	public float getValorPago() {
-		return valorPago;
-	}
-
-	public void setValorPago(float valorPago) {
-		this.valorPago = valorPago;
-	}
-
-	public Funcionario getFuncionario() {
-		return funcionario;
-	}
-
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
-	}
-
-	public LocalDateTime getData() {
-		return data;
-	}
-
-	public void setData(LocalDateTime data) {
-		this.data = data;
-	}
-
-	public String getPlacaVeiculo() {
-		return placaVeiculo;
-	}
-
-	public void setPlacaVeiculo(String placaVeiculo) {
-		this.placaVeiculo = placaVeiculo;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-	
-	public boolean isNoEstacionamento() {
-		return isNoEstacionamento;
-	}
-
-	public void setIsNoEstacionamento(boolean isNoEstacionamento) {
-		this.isNoEstacionamento = isNoEstacionamento;
 	}
 
 	public RegistroPagamento(float valorPago, Funcionario funcionario, LocalDateTime data, String placaVeiculo) {
