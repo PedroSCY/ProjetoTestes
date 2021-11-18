@@ -1,7 +1,6 @@
 package com.tt.ProjetoTestes.facades.casosdeuso;
 
-
-import util.CentralDoSistema;
+import com.tt.ProjetoTestes.util.CentralDoSistema;
 
 public class FacadeCadastroEstacionamento {
 

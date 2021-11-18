@@ -9,7 +9,6 @@ import java.io.PrintWriter;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
-import persistencia.DAOCentralDoSistema;
 
 //import persistencia.DAOCentralDoSistema;
 
@@ -29,7 +28,7 @@ public class CentralDoSistema {
 
 
 	private static File arquivoCentral = new File("Arquivo_de_configuracao.xml");;
-	//private static XStream xstream = new XStream(new DomDriver("UTF-8"));
+	private static XStream xstream = new XStream(new DomDriver("UTF-8"));
 
 	private CentralDoSistema() {
 		//		

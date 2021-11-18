@@ -6,6 +6,9 @@ import java.util.Set;
 import com.tt.ProjetoTestes.model.entidades.ClienteMensalista;
 import com.tt.ProjetoTestes.model.entidades.Funcionario;
 import com.tt.ProjetoTestes.model.entidades.RegistroPagamento;
+import com.tt.ProjetoTestes.persistencia.DAOClienteMensalista;
+import com.tt.ProjetoTestes.persistencia.DAOFuncionario;
+import com.tt.ProjetoTestes.persistencia.DAORegistroPagamento;
 import com.tt.ProjetoTestes.util.CentralDoSistema;
 import com.tt.ProjetoTestes.util.ValidadoraDatas;
 

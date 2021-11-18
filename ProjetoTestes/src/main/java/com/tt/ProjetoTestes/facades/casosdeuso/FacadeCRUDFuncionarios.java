@@ -4,6 +4,7 @@ package com.tt.ProjetoTestes.facades.casosdeuso;
 import java.util.Set;
 
 import com.tt.ProjetoTestes.model.entidades.Funcionario;
+import com.tt.ProjetoTestes.persistencia.DAOFuncionario;
 import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
 
 

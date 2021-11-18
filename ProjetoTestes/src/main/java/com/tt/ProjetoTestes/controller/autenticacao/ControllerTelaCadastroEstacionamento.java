@@ -1,7 +1,7 @@
 package com.tt.ProjetoTestes.controller.autenticacao;
 
-import facades.casosdeuso.FacadeCadastroEstacionamento;
-import view.autenticacao.TelaPrincipalAutenticacao;
+import com.tt.ProjetoTestes.facades.casosdeuso.FacadeCadastroEstacionamento;
+import com.tt.ProjetoTestes.view.autenticacao.TelaPrincipalAutenticacao;
 
 public class ControllerTelaCadastroEstacionamento {
 

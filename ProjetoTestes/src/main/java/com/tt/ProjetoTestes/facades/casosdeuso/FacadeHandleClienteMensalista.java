@@ -4,6 +4,7 @@ package com.tt.ProjetoTestes.facades.casosdeuso;
 import java.util.Set;
 
 import com.tt.ProjetoTestes.model.entidades.ClienteMensalista;
+import com.tt.ProjetoTestes.persistencia.DAOClienteMensalista;
 import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
 
 //import dao.DAOClienteMensalista;

@@ -1,12 +1,13 @@
 package com.tt.ProjetoTestes.controller.autenticacao;
 
+import com.tt.ProjetoTestes.facades.casosdeuso.FacadeLogin;
+import com.tt.ProjetoTestes.model.entidades.Funcionario;
+import com.tt.ProjetoTestes.view.projetos.TelaPrincipal;
+
 //import facades.casosdeuso.FacadeCasoDeUso2;
-import facades.casosdeuso.FacadeLogin;
 //import model.autenticacao.RegistradorSessaoLogin;
 //import model.autenticacao.TipoProvedorAutenticacao;
-import model.entidades.Funcionario;
 //import view.projetos.TelaPonto;
-import view.projetos.TelaPrincipal;
 
 /**
  * 

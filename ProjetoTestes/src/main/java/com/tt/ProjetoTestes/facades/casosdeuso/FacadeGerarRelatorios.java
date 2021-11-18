@@ -3,9 +3,10 @@ package com.tt.ProjetoTestes.facades.casosdeuso;
 //import relatorios.DiretorMontagemRelatorio;
 import java.time.LocalDateTime;
 
-import persistencia.DAORegistroPagamento;
-import view.projetos.relatorios.DiretorMontagem;
-import view.projetos.relatorios.MontadorRelatorioSwing;;
+import com.tt.ProjetoTestes.persistencia.DAORegistroPagamento;
+import com.tt.ProjetoTestes.view.projetos.relatorios.DiretorMontagem;
+import com.tt.ProjetoTestes.view.projetos.relatorios.MontadorRelatorioSwing;
+
 
 public class FacadeGerarRelatorios {
 
