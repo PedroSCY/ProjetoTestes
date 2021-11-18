@@ -1,5 +1,6 @@
 package com.tt.ProjetoTestes.model.entidades;
 
+
 public abstract class Pessoa {
 	private String nome;
 	private String email;
