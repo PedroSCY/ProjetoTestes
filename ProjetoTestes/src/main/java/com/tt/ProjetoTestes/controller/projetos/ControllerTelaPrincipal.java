@@ -1,5 +1,8 @@
 package com.tt.ProjetoTestes.controller.projetos;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import com.tt.ProjetoTestes.view.autenticacao.TelaPrincipalAutenticacao;
 import com.tt.ProjetoTestes.view.projetos.TelaPrincipal;
 
@@ -9,9 +12,13 @@ import com.tt.ProjetoTestes.view.projetos.TelaPrincipal;
  *
  *Essa classe é o controller como realiza operações da tela Principal
  */
+
+@Controller
 public class ControllerTelaPrincipal {
 	
+	@Autowired
 	private TelaPrincipal telaprincipal;
+	
 //	private RegistradorSessaoLogin registradorSessaoLogin = RegistradorSessaoLogin.getInstance();
 	
 	public ControllerTelaPrincipal(TelaPrincipal telaprincipa){

@@ -1,5 +1,8 @@
 package com.tt.ProjetoTestes.controller.projetos;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import com.tt.ProjetoTestes.facades.casosdeuso.FacadeHandleClienteMensalista;
 import com.tt.ProjetoTestes.model.entidades.ClienteMensalista;
 import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
@@ -10,11 +13,17 @@ import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
  *
  *Essa classe é o controller como realiza operações do JPanel Tela cadastro grupos
  */
+
+@Controller
 public class ControllerTelaCRUDClientesMensalistas {
 
 //	private FacadeCasoDeUso3 facadeCasoDeUso3 = new FacadeCasoDeUso3();
-	private FacadeHandleClienteMensalista facadeHandleClienteMensalista = new FacadeHandleClienteMensalista();
+	
+	@Autowired
+	private FacadeHandleClienteMensalista facadeHandleClienteMensalista;
+	
 	private ClienteMensalista[] clientes;
+	
 //	private RegistradorSessaoLogin registradorSessaoLogin = RegistradorSessaoLogin.getInstance();
 //	private long matriculaDoAdmin = registradorSessaoLogin.getMembroLogado().getMatricula();
 	

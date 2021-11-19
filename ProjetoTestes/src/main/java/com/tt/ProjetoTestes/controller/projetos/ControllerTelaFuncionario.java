@@ -1,5 +1,8 @@
 package com.tt.ProjetoTestes.controller.projetos;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import com.tt.ProjetoTestes.facades.casosdeuso.FacadePagamentos;
 import com.tt.ProjetoTestes.model.entidades.RegistroPagamento;
 
@@ -9,9 +12,13 @@ import com.tt.ProjetoTestes.model.entidades.RegistroPagamento;
  *
  *Essa classe é o controller como realiza operações do JPanel Tela cadastro Projetos
  */
+
+@Controller
 public class ControllerTelaFuncionario {
 
-	private FacadePagamentos facadePagamentos = new FacadePagamentos();
+	@Autowired
+	private FacadePagamentos facadePagamentos;
+	
 	private RegistroPagamento[] registroPagamentos;
 		
 	public void registrarPagamento(String matriculaFuncionarioText, String valor,  int posicao) throws Exception{

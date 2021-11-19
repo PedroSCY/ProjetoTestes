@@ -3,15 +3,23 @@ package com.tt.ProjetoTestes.facades.casosdeuso;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.tt.ProjetoTestes.model.entidades.Funcionario;
 import com.tt.ProjetoTestes.persistencia.DAOFuncionario;
 import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
 
-
+@Component
 public class FacadeCRUDFuncionarios {
 
+	@Autowired
 	private Funcionario funcionario;
+	
+	@Autowired
 	private DAOFuncionario daoFuncionario;
+	
+	@Autowired
 	private FacadeLogin facadeLogin;
 	
 	public FacadeCRUDFuncionarios() {

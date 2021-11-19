@@ -3,6 +3,9 @@ package com.tt.ProjetoTestes.facades.casosdeuso;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.tt.ProjetoTestes.model.entidades.ClienteMensalista;
 import com.tt.ProjetoTestes.model.entidades.Funcionario;
 import com.tt.ProjetoTestes.model.entidades.RegistroPagamento;
@@ -14,15 +17,26 @@ import com.tt.ProjetoTestes.util.ValidadoraDatas;
 
 //import persistencia.dao.DAORegistroPagamento;
 
+@Component
 public class FacadePagamentos {
 
+	@Autowired
 	private Funcionario funcionario;
+
+	@Autowired
 	private RegistroPagamento registroPagamento;
 	
+	@Autowired
 	private DAORegistroPagamento daoRegistroPagamento;
+
+	@Autowired
 	private DAOFuncionario daoFuncionario;
+
 //	private DAOCentralDoSistema daoCentralDoSistema;
+
+	@Autowired
 	private DAOClienteMensalista daoClienteMensalista;
+
 	private CentralDoSistema central = CentralDoSistema.getInstance();
 	
 	

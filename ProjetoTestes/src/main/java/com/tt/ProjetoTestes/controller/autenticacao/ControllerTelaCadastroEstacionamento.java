@@ -1,10 +1,15 @@
 package com.tt.ProjetoTestes.controller.autenticacao;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import com.tt.ProjetoTestes.facades.casosdeuso.FacadeCadastroEstacionamento;
 import com.tt.ProjetoTestes.view.autenticacao.TelaPrincipalAutenticacao;
 
+@Controller
 public class ControllerTelaCadastroEstacionamento {
 
+	@Autowired
 	private FacadeCadastroEstacionamento facadeCadastroEstacionamento;
 	
 	public ControllerTelaCadastroEstacionamento() {

@@ -1,5 +1,8 @@
 package com.tt.ProjetoTestes.controller.autenticacao;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import com.tt.ProjetoTestes.facades.casosdeuso.FacadeCRUDFuncionarios;
 import com.tt.ProjetoTestes.model.entidades.Funcionario;
 
@@ -10,9 +13,11 @@ import com.tt.ProjetoTestes.model.entidades.Funcionario;
  *  Essa classe é o controller que realiza operações do JPanel TelaCriarConta.
  *  
  */
+@Controller
 public class ControllerTelaCriarConta {
 
-	private static FacadeCRUDFuncionarios facadeCRUDFuncionarios = new FacadeCRUDFuncionarios();
+	@Autowired
+	private static FacadeCRUDFuncionarios facadeCRUDFuncionarios;
 	
 	public void cadastrarConta(String nome,long matricula,String login,String senha, String cpf) throws Exception {
 		

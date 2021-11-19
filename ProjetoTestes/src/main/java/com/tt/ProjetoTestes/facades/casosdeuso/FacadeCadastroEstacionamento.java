@@ -1,9 +1,14 @@
 package com.tt.ProjetoTestes.facades.casosdeuso;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.tt.ProjetoTestes.util.CentralDoSistema;
 
+@Component
 public class FacadeCadastroEstacionamento {
 
+	@Autowired
 	private CentralDoSistema centralDoSistema;
 	
 	public FacadeCadastroEstacionamento() {

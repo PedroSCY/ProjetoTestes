@@ -4,6 +4,9 @@ package com.tt.ProjetoTestes.controller.projetos;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import com.tt.ProjetoTestes.facades.casosdeuso.FacadeCRUDFuncionarios;
 import com.tt.ProjetoTestes.facades.casosdeuso.FacadeGerarRelatorios;
 import com.tt.ProjetoTestes.model.entidades.Funcionario;
@@ -21,11 +24,15 @@ import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
  *
  *Essa classe é o controller como realiza operações do JPanel Tela cadastro Editais
  */
+
+@Controller
 public class ControllerTelaCRUDFuncionarios {
 
+	@Autowired
+	private FacadeCRUDFuncionarios facadeCRUDFuncionarios;
 	
-	private FacadeCRUDFuncionarios facadeCRUDFuncionarios = new FacadeCRUDFuncionarios();
-	private FacadeGerarRelatorios facadeGerarRelatorios = new FacadeGerarRelatorios();
+	@Autowired
+	private FacadeGerarRelatorios facadeGerarRelatorios;
 	
 	private Funcionario[] funcionarios;
 	

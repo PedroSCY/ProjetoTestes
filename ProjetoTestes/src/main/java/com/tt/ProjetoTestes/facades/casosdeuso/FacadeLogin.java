@@ -1,13 +1,18 @@
 package com.tt.ProjetoTestes.facades.casosdeuso;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.tt.ProjetoTestes.model.entidades.Funcionario;
 import com.tt.ProjetoTestes.persistencia.DAOFuncionario;
 import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
 
 //import persistencia.dao.DAOFuncionario;
 
+@Component
 public class FacadeLogin {
 
+	@Autowired
 	private DAOFuncionario daoFuncionario;
 	
 	public FacadeLogin() {

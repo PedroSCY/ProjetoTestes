@@ -3,17 +3,24 @@ package com.tt.ProjetoTestes.facades.casosdeuso;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.tt.ProjetoTestes.model.entidades.ClienteMensalista;
 import com.tt.ProjetoTestes.persistencia.DAOClienteMensalista;
 import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
 
 //import dao.DAOClienteMensalista;
 
+@Component
 public class FacadeHandleClienteMensalista {
 
 //	private DAOClienteMensalista dAOClienteMensalista;
 
+	@Autowired
 	private DAOClienteMensalista daoClienteMensalista;
+
+	@Autowired
 	private ClienteMensalista clienteMensalista;
 	
 	public FacadeHandleClienteMensalista() {

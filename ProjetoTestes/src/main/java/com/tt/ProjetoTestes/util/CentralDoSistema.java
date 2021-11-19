@@ -6,12 +6,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 
 //import persistencia.DAOCentralDoSistema;
 
+@Component
 public class CentralDoSistema {
 
 	private float valorBase;
@@ -21,6 +25,8 @@ public class CentralDoSistema {
 	private String numeroAgencia;
 	private String numeroContaEstacionamento;
 	private String variacao;
+	
+	@Autowired
 	private static CentralDoSistema centralDoSistema;
 	private int quantidadeVagasDisponiveis;
 
