@@ -1,5 +1,8 @@
 package com.tt.ProjetoTestes.repositorys;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.tt.ProjetoTestes.model.entidades.Pessoa;
@@ -7,12 +10,14 @@ import com.tt.ProjetoTestes.model.entidades.Pessoa;
 public interface PessoaRepository extends JpaRepository<Pessoa, Integer> {
 
 	// buscar pessoa pelo nome
-	public Pessoa findByNome(String nome);
+	public List<Pessoa> findByNome(String nome);
 
 	// buscar pessoa pelo ID
-	public Pessoa findById(int id);
+	public Optional<Pessoa> findById(long id);
+	
+	public List<Pessoa> findByEmail(String email);
 
 	// buscar pessoa pelo CPF
-	public Pessoa findByCPF(long CPF);
+	public List<Pessoa> findByCPF(long CPF);
 
 }

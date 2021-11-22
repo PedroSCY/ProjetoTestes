@@ -2,6 +2,7 @@ package com.tt.ProjetoTestes.model.entidades;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -52,4 +53,17 @@ public class Funcionario extends Pessoa {
 	public Funcionario(String nome) {
 		super(nome);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Funcionario other = (Funcionario) obj;
+		return matricula == other.matricula && this.getCpf() == other.getCpf() && Objects.equals(this.getEmail(), other.getEmail()) && this.getId() == other.getId();
+	}
+	
 }
