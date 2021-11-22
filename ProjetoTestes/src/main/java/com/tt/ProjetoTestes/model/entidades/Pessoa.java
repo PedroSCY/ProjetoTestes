@@ -47,5 +47,9 @@ public class Pessoa {
 		this.senha = senha;
 		this.cpf = CPF;
 	}
+
+	public Pessoa(String nome) {
+		this.nome = nome;
+	}
 	
 }

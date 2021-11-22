@@ -24,5 +24,9 @@ public class ClienteMensalista extends Pessoa {
 		super(nome, email, senha, cpf);
 		this.creditoDisponivel = creditoDisponivel;
 	}
+	
+	public ClienteMensalista(String nome) {
+		super(nome);
+	}
 
 }

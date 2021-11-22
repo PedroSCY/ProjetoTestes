@@ -49,4 +49,7 @@ public class Funcionario extends Pessoa {
 		this.isGerente = isGerente;
 	}
 	
+	public Funcionario(String nome) {
+		super(nome);
+	}
 }

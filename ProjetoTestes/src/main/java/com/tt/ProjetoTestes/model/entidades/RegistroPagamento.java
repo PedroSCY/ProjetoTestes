@@ -1,6 +1,6 @@
 package com.tt.ProjetoTestes.model.entidades;
 
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -11,14 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ManyToAny;
+
 
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+
 
 @Entity
 @Table(name = "TB_REGISTROPAGAMENTO")
@@ -48,8 +47,9 @@ public class RegistroPagamento {
 	private boolean isNoEstacionamento; 
 	
 	
-	public RegistroPagamento() {
-		this.id = System.currentTimeMillis();
+	public RegistroPagamento(long id) {
+		
+		this.id = id;
 	}
 
 	public RegistroPagamento(float valorPago, Funcionario funcionario, LocalDateTime data, String placaVeiculo) {
