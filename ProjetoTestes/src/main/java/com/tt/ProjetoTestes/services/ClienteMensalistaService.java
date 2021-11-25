@@ -19,7 +19,7 @@ public class ClienteMensalistaService {
 	 * @throws Exception Caso já exista um objeto clienteMensalista cadastrado como o mesmo CPF ou email do objeto passado por parametro.
 	 */
 	public void salvarclienteMensalista(ClienteMensalista clienteMensalista) throws Exception {
-		if(!verificarExistenciaCPF(clienteMensalista.getCpf()) && !verificarExistenciaEmail(clienteMensalista.getEmail())) {
+		if(!this.verificarExistenciaCPF(clienteMensalista.getCpf()) && !this.verificarExistenciaEmail(clienteMensalista.getEmail())) {
 			
 			clienteMensalistaRepository.save(clienteMensalista);
 			

@@ -65,5 +65,13 @@ public class Funcionario extends Pessoa {
 		Funcionario other = (Funcionario) obj;
 		return matricula == other.matricula && this.getCpf() == other.getCpf() && Objects.equals(this.getEmail(), other.getEmail()) && this.getId() == other.getId();
 	}
+
+	public long getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(long matricula) {
+		this.matricula = matricula;
+	}
 	
 }
