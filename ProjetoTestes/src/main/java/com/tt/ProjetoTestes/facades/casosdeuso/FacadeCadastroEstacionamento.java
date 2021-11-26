@@ -5,15 +5,17 @@ import org.springframework.stereotype.Component;
 
 import com.tt.ProjetoTestes.util.CentralDoSistema;
 
+
 @Component
 public class FacadeCadastroEstacionamento {
 
 	@Autowired
 	private CentralDoSistema centralDoSistema;
 	
+	
 	public FacadeCadastroEstacionamento() {
 
-		centralDoSistema = CentralDoSistema.getInstance();
+		centralDoSistema = ;
 		
 	}
 	

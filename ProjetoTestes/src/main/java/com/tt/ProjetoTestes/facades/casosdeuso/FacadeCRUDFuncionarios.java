@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.tt.ProjetoTestes.model.entidades.Funcionario;
-import com.tt.ProjetoTestes.persistencia.DAOFuncionario;
 import com.tt.ProjetoTestes.services.FuncionarioService;
 import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
 
@@ -61,7 +60,7 @@ public class FacadeCRUDFuncionarios {
 		funcionario.setEmail(email);
 		funcionario.setSenha(senha);
 		
-		daoFuncionario.atualizar(matriculaFuncionario, funcionario);
+//		daoFuncionario.atualizar(matriculaFuncionario, funcionario);
 		funcionarioService.atualizarFuncionario(funcionario);
 
 		return false;
@@ -84,12 +83,11 @@ public class FacadeCRUDFuncionarios {
 	}
 
 	public Set<Funcionario> recuperarTodos() {
-		
-		return daoFuncionario.consultarTodos();
+		return funcionarioService.recuperarTodos();
 	}
 
 	public Funcionario[] getTodosOsFuncionarios() {
-		Set<Funcionario> funcionariosRegistrados = daoFuncionario.consultarTodos();
+		Set<Funcionario> funcionariosRegistrados = recuperarTodos();
 		return funcionariosRegistrados.toArray(new Funcionario[funcionariosRegistrados.size()]);
 	}
 }
