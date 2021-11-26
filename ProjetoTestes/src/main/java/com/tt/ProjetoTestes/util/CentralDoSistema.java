@@ -1,198 +1,53 @@
 package com.tt.ProjetoTestes.util;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 //import persistencia.DAOCentralDoSistema;
 
-@Component
+@Entity
+@Table(name = "TB_CENTRALDOSISTEMA")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CentralDoSistema {
 
+	@Id
+	@Column(name = "ID")
+	private int id = 1; 
+	
+	@Column(name = "VALORBASE")
 	private float valorBase;
+	
+	@Column(name = "VALORPORHORAEXTRA")
 	private float valorPorHoraExtra;
+	
+	@Column(name = "CNPJ")
 	private String CNPJ;
+	
+	@Column(name = "AGENCIABANCARIA")
 	private String agenciaBancaria;
+	
+	@Column(name = "NUMEROAGENCIA")
 	private String numeroAgencia;
+	
+	@Column(name = "NUMEROCONTAESTACIONAMENTO")
 	private String numeroContaEstacionamento;
+	
+	@Column(name = "VARIAÇAO")
 	private String variacao;
 	
-	@Autowired
-	private static CentralDoSistema centralDoSistema;
+	@Column(name = "QUANTIDADEVAGASDISPONIVEIS")
 	private int quantidadeVagasDisponiveis;
 
-	//	private static CentralDoSistema arquivoConfiguracao;
-
-
-	private static File arquivoCentral = new File("Arquivo_de_configuracao.xml");;
-	private static XStream xstream = new XStream(new DomDriver("UTF-8"));
-
-	private CentralDoSistema() {
-		//		
-		//		if (arquivoColecao.exists()) {
-		//			carregarXML();
-		//		} else {
-		//			arquivoConfiguracao = null;
-		//		}
-	}
-
-	//	public void salvarCentral() {
-	//		this.arquivoConfiguracao = central;
-	//		salvarXML();
-	//	}
-
-	private static CentralDoSistema recuperarCentral() {
-		
-		try {
-			
-			if(arquivoCentral.exists()) {
-				
-				FileInputStream fis = new FileInputStream(arquivoCentral);
-				//return (CentralDoSistema) xstream.fromXML(fis);
-				
-			}
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		return new CentralDoSistema();
-		
-		
-		//		try {
-		//
-		//			FileInputStream fis = new FileInputStream(arquivoColecao);
-		//			return (CentralDoSistema) xstream.fromXML(fis); // Os dados recuperados são passados ao hashmap persistidos.
-		//
-		////			return; // Caso nenhuma alteração seja feita, o metodo salvarxml() não será acionado.
-		//
-		//		} catch (FileNotFoundException e) {
-		//			e.printStackTrace();
-		//		}
-
-	}
-
-//	private static void carregarXML() {
-
-		//		try {
-		//
-		//			FileInputStream fis = new FileInputStream(arquivoColecao);
-		//			arquivoConfiguracao = (CentralDoSistema) xstream.fromXML(fis); // Os dados recuperados são passados ao hashmap persistidos.
-		//
-		//			return; // Caso nenhuma alteração seja feita, o metodo salvarxml() não será acionado.
-		//
-		//		} catch (FileNotFoundException e) {
-		//			e.printStackTrace();
-		//		}
-//	}
-
-	public void salvarCentral() {
-
-		String xmlArquivoConfiguracao = xstream.toXML(centralDoSistema);
-//		xstream.alias("map", java.util.Map.class);
-
-		try {
-
-			arquivoCentral.createNewFile();
-			PrintWriter gravador = new PrintWriter (arquivoCentral);
-			gravador.print(xmlArquivoConfiguracao);
-			gravador.close();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-
-
-	public static CentralDoSistema getInstance() {
-		//		DAOCentralDoSistema daoCS = new DAOCentralDoSistema();
-
-		if(centralDoSistema == null) {
-
-			//			centralDoSistema =  new CentralDoSistema();
-			//			centralDoSistema = recuperarCentral();
-
-			//			if(daoCS.temConfiguracaoAntiga()) {
-			centralDoSistema = recuperarCentral();
-			//			}else {
-			//				centralDoSistema = new CentralDoSistema();
-			//			}
-
-		}
-		return centralDoSistema;
-	}
-
-	public float getValorBase() {
-		return valorBase;
-	}
-
-	public void setValorBase(float valorBase) {
-		this.valorBase = valorBase;
-	}
-
-	public float getValorPorHoraExtra() {
-		return valorPorHoraExtra;
-	}
-
-	public void setValorPorHoraExtra(float valorPorHoraExtra) {
-		this.valorPorHoraExtra = valorPorHoraExtra;
-	}
-
-	public String getCNPJ() {
-		return CNPJ;
-	}
-
-	public void setCNPJ(String cNPJ) {
-		CNPJ = cNPJ;
-	}
-
-	public String getAgenciaBancaria() {
-		return agenciaBancaria;
-	}
-
-	public void setAgenciaBancaria(String agenciaBancaria) {
-		this.agenciaBancaria = agenciaBancaria;
-	}
-
-	public String getNumeroAgencia() {
-		return numeroAgencia;
-	}
-
-	public void setNumeroAgencia(String numeroAgencia) {
-		this.numeroAgencia = numeroAgencia;
-	}
-
-	public String getNumeroContaEstacionamento() {
-		return numeroContaEstacionamento;
-	}
-
-	public void setNumeroContaEstacionamento(String numeroContaEstacionamento) {
-		this.numeroContaEstacionamento = numeroContaEstacionamento;
-	}
-
-	public String getVariacao() {
-		return variacao;
-	}
-
-	public void setVariacao(String variacao) {
-		this.variacao = variacao;
-	}
-
-	public int getQuantidadeVagasDisponiveis() {
-		return quantidadeVagasDisponiveis;
-	}
-
-	public void setQuantidadeVagasDisponiveis(int quantidadeVagasDisponiveis) {
-		this.quantidadeVagasDisponiveis = quantidadeVagasDisponiveis;
-	}
-	
 }
