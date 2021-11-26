@@ -12,6 +12,7 @@ import com.tt.ProjetoTestes.model.entidades.RegistroPagamento;
 import com.tt.ProjetoTestes.persistencia.DAOClienteMensalista;
 import com.tt.ProjetoTestes.persistencia.DAOFuncionario;
 import com.tt.ProjetoTestes.persistencia.DAORegistroPagamento;
+import com.tt.ProjetoTestes.services.ClienteMensalistaService;
 import com.tt.ProjetoTestes.util.CentralDoSistema;
 import com.tt.ProjetoTestes.util.ValidadoraDatas;
 
@@ -35,7 +36,7 @@ public class FacadePagamentos {
 //	private DAOCentralDoSistema daoCentralDoSistema;
 
 	@Autowired
-	private DAOClienteMensalista daoClienteMensalista;
+	private ClienteMensalistaService clienteMensalistaService;
 
 	private CentralDoSistema central = CentralDoSistema.getInstance();
 	
@@ -45,7 +46,7 @@ public class FacadePagamentos {
 		daoRegistroPagamento = new DAORegistroPagamento();
 		daoFuncionario = new DAOFuncionario();
 //		daoCentralDoSistema = new DAOCentralDoSistema();
-		daoClienteMensalista = new DAOClienteMensalista();
+		
 	}
 
 //	private DAORegistroPagamento dAORegistroPagamento;
