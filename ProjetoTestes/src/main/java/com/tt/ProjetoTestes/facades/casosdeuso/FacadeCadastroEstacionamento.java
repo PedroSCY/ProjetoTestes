@@ -3,6 +3,7 @@ package com.tt.ProjetoTestes.facades.casosdeuso;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.tt.ProjetoTestes.services.CentralDoSistemaService;
 import com.tt.ProjetoTestes.util.CentralDoSistema;
 
 @Component
@@ -10,13 +11,12 @@ public class FacadeCadastroEstacionamento {
 
 	@Autowired
 	private CentralDoSistema centralDoSistema;
-	
+		
 	public FacadeCadastroEstacionamento() {
 
-		centralDoSistema = CentralDoSistema.getInstance();
+		centralDoSistema = centralDoSistema.getInstance();
 		
 	}
-	
 	
 	public void cadastrarInformacoesDoEstacionamento(float valorBase, float valorTaxa, String CNPJ, String agencia,
 			String numeroAgencia, String numeroConta, String variacao, int totalVagas) {
@@ -35,7 +35,7 @@ public class FacadeCadastroEstacionamento {
 		centralDoSistema.setValorPorHoraExtra(valorTaxa);
 		centralDoSistema.setQuantidadeVagasDisponiveis(totalVagas);
 		
-		centralDoSistema.salvarCentral();
+		centralDoSistema.salvar();
 	}
 	
 	public String[] getInformacoes() {

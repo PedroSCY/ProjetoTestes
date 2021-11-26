@@ -15,7 +15,7 @@ import com.thoughtworks.xstream.security.NoTypePermission;
 import com.tt.ProjetoTestes.model.entidades.ClienteMensalista;
 
 
-public class DAOClienteMensalista {
+public class DAOClienteMensalista0 {
 
 	private HashMap<Long, ClienteMensalista> persistidos;
 	private File arquivoColecao;

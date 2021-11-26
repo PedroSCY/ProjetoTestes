@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.tt.ProjetoTestes.model.entidades.Funcionario;
-import com.tt.ProjetoTestes.persistencia.DAOFuncionario;
+import com.tt.ProjetoTestes.services.FuncionarioService;
 import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
 
 @Component
@@ -17,38 +17,38 @@ public class FacadeCRUDFuncionarios {
 	private Funcionario funcionario;
 	
 	@Autowired
-	private DAOFuncionario daoFuncionario;
+	private FuncionarioService funcionarioService;
 	
 	@Autowired
 	private FacadeLogin facadeLogin;
 	
 	public FacadeCRUDFuncionarios() {
 
-		daoFuncionario = new DAOFuncionario();
+		funcionarioService = new FuncionarioService();
 		facadeLogin = new FacadeLogin();
 	}
 
 
 	public void cadastrarNovoFuncionario( long matriculaFuncionario, String nome, String email, String senha, long cpf, boolean isGerente) throws Exception {
 
-//		if(!daoFuncionario.consultarFuncionario(matriculaGerente).isGerente()) {
+//		if(!funcionarioService.consultarFuncionario(matriculaGerente).isGerente()) {
 //			throw new Exception("Você não é o gerente");
 //		}
 		if(!validarEmail(email)) {
 			throw new Exception("Email inválido");
 		}
 		
-		daoFuncionario.FuncionarioNaoExiste(cpf, matriculaFuncionario);
+		funcionarioService.FuncionarioNaoExiste(cpf, matriculaFuncionario);
 		
 		Funcionario funcionario = new Funcionario(nome, email, senha, cpf, matriculaFuncionario, isGerente);
 		
-		daoFuncionario.criar(funcionario);
+		funcionarioService.salvarFuncionario(funcionario);
 		
 	}
 
 	public boolean atualizarCadastroDeFuncionario(long matriculaFuncionario, String nome, String email, String senha, long cpf) throws Exception {
 		
-//		if(!daoFuncionario.consultarFuncionario(matriculaGerente).isGerente()) {
+//		if(!funcionarioService.consultarFuncionario(matriculaGerente).isGerente()) {
 //			throw new Exception("Você não é o gerente");
 //		}
 		
@@ -58,20 +58,20 @@ public class FacadeCRUDFuncionarios {
 		funcionario.setEmail(email);
 		funcionario.setSenha(senha);
 		
-		daoFuncionario.atualizar(matriculaFuncionario, funcionario);
+		funcionarioService.atualizarFuncionario(funcionario);
 		
 		return false;
 	}
 
 	public void removerFuncionario(long matricula) throws Exception {
 
-		Funcionario funcionario = daoFuncionario.consultarFuncionario(matricula);
+		Funcionario funcionario = funcionarioService.recuperarPelaMatricula(matricula);
 		
 		if(funcionario.isGerente()) {
 			throw new Exception("O funcionário é um gerente");
 		}
 		
-		daoFuncionario.remover(matricula);
+		funcionarioService.excluirFuncionario(matricula);
 		
 	}
 
@@ -80,11 +80,11 @@ public class FacadeCRUDFuncionarios {
 	}
 
 	public Set<Funcionario> recuperarTodos() {
-		return daoFuncionario.consultarTodos();
+		return funcionarioService.consultarTodos();
 	}
 
 	public Funcionario[] getTodosOsFuncionarios() {
-		Set<Funcionario> funcionariosRegistrados = daoFuncionario.consultarTodos();
+		Set<Funcionario> funcionariosRegistrados = funcionarioService.consultarTodos();
 		return funcionariosRegistrados.toArray(new Funcionario[funcionariosRegistrados.size()]);
 	}
 }

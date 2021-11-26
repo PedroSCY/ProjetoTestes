@@ -4,20 +4,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.tt.ProjetoTestes.model.entidades.Funcionario;
-import com.tt.ProjetoTestes.persistencia.DAOFuncionario;
+import com.tt.ProjetoTestes.services.FuncionarioService;
 import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
 
-//import persistencia.dao.DAOFuncionario;
+//import persistencia.dao.FuncionarioService;
 
 @Component
 public class FacadeLogin {
 
 	@Autowired
-	private DAOFuncionario daoFuncionario;
+	private FuncionarioService funcionarioService;
 	
 	public FacadeLogin() {
 		
-		daoFuncionario = new DAOFuncionario();
+		funcionarioService = new FuncionarioService();
 	}
 	
 	//TODO - atualizar no UML
@@ -28,7 +28,7 @@ public class FacadeLogin {
 		}
 		
 		Funcionario funcionario;
-		funcionario = daoFuncionario.consultarFuncionario(email);
+		funcionario = funcionarioService.recuperarPeloEmail(email);
 		
 		if(!funcionario.getSenha().equals(senha)) {
 			throw new Exception("Senha inválida");

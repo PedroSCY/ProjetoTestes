@@ -15,7 +15,7 @@ import com.thoughtworks.xstream.security.NoTypePermission;
 import com.tt.ProjetoTestes.model.entidades.Funcionario;
 
 
-public class DAOFuncionario {
+public class DAOFuncionario1 {
 
 	private HashMap<Long, Funcionario> persistidos;
 	private File arquivoColecao;

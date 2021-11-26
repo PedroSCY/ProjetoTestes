@@ -1,6 +1,8 @@
 package com.tt.ProjetoTestes.services;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +14,8 @@ public class ClienteMensalistaService {
 
 	@Autowired
 	private ClienteMensalistaRepository clienteMensalistaRepository;
-
+		
+	
 	/**
 	 * Esse método salva ( Adiciona ao banco de dados) um unico objeto clienteMensalista por vez. 
 	 * @param ClienteMensalista objeto a ser adicionada ao banco
@@ -73,6 +76,19 @@ public class ClienteMensalistaService {
 		throw new Exception("[ERRO] Email: " + email + " não cadastrado");
 		
 	}
+	
+	
+	public Set<ClienteMensalista> recuperarTodos(){
+		Set<ClienteMensalista> clientes = new HashSet<ClienteMensalista>(clienteMensalistaRepository.findAll());
+		return clientes;
+	}
+	
+	public void ClienteMensalistaNaoExiste(long cpf) throws Exception {
+		if(clienteMensalistaRepository.findByCPF(cpf).size() >=1) {
+			throw new Exception("Cliente Mensalista existente");
+		}	
+	}
+	
 	
 	/**
 	 * Esse metodo recupera um clienteMensalista pelo CPF cadastrado.

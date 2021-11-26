@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 import com.tt.ProjetoTestes.model.entidades.ClienteMensalista;
 import com.tt.ProjetoTestes.model.entidades.Funcionario;
 import com.tt.ProjetoTestes.model.entidades.RegistroPagamento;
-import com.tt.ProjetoTestes.persistencia.DAOClienteMensalista;
-import com.tt.ProjetoTestes.persistencia.DAOFuncionario;
 import com.tt.ProjetoTestes.persistencia.DAORegistroPagamento;
+import com.tt.ProjetoTestes.services.ClienteMensalistaService;
+import com.tt.ProjetoTestes.services.FuncionarioService;
 import com.tt.ProjetoTestes.util.CentralDoSistema;
 import com.tt.ProjetoTestes.util.ValidadoraDatas;
 
@@ -30,12 +30,12 @@ public class FacadePagamentos {
 	private DAORegistroPagamento daoRegistroPagamento;
 
 	@Autowired
-	private DAOFuncionario daoFuncionario;
+	private FuncionarioService funcionarioService;
 
 //	private DAOCentralDoSistema daoCentralDoSistema;
 
 	@Autowired
-	private DAOClienteMensalista daoClienteMensalista;
+	private ClienteMensalistaService clienteMensalistaService;
 
 	private CentralDoSistema central = CentralDoSistema.getInstance();
 	
@@ -43,9 +43,9 @@ public class FacadePagamentos {
 	public FacadePagamentos() {
 		
 		daoRegistroPagamento = new DAORegistroPagamento();
-		daoFuncionario = new DAOFuncionario();
+		funcionarioService = new FuncionarioService();
 //		daoCentralDoSistema = new DAOCentralDoSistema();
-		daoClienteMensalista = new DAOClienteMensalista();
+		clienteMensalistaService = new ClienteMensalistaService();
 	}
 
 //	private DAORegistroPagamento dAORegistroPagamento;
@@ -54,7 +54,7 @@ public class FacadePagamentos {
 
 		
 		
-		funcionario = daoFuncionario.consultarFuncionario(matricula);
+		funcionario = funcionarioService.recuperarPelaMatricula(matricula);
 		registroPagamento = daoRegistroPagamento.consultarRegistro(id);
 		
 		registroPagamento.setValorPago(valorPago);
@@ -63,17 +63,17 @@ public class FacadePagamentos {
 		
 				
 		daoRegistroPagamento.atualizar(id, registroPagamento);
-		daoFuncionario.atualizar(matricula, funcionario);
+		funcionarioService.atualizarFuncionario(funcionario);
 		central.setQuantidadeVagasDisponiveis(central.getQuantidadeVagasDisponiveis()+1);
-		central.salvarCentral();
+		central.salvar();
 		
 	}
 	
 	public void descontarDeCredito(long matricula, float valorAPagar, long id, long cpf) throws Exception {
 	
-		ClienteMensalista clienteMensalista = daoClienteMensalista.consultarCliente(cpf);
+		ClienteMensalista clienteMensalista = clienteMensalistaService.recuperarPeloCPF(cpf);
 		
-		daoClienteMensalista.atualizar(cpf, realizarPagamento(clienteMensalista, valorAPagar));
+		clienteMensalistaService.atualizarclienteMensalista(realizarPagamento(clienteMensalista, valorAPagar));
 		
 		registrarPagamento(matricula, valorAPagar, id);
 		
@@ -82,7 +82,7 @@ public class FacadePagamentos {
 	public void receberVeiculo(String placaVeiculo, long matricula) throws Exception{
 		
 		
-		funcionario = daoFuncionario.consultarFuncionario(matricula);
+		funcionario = funcionarioService.recuperarPelaMatricula(matricula);
 		registroPagamento = funcionario.registrarPagamento(0, placaVeiculo, funcionario);
 				
 		daoRegistroPagamento.criar(registroPagamento);
@@ -91,8 +91,8 @@ public class FacadePagamentos {
 			throw new Exception("Não há vagas disponíveis");
 		}
 		central.setQuantidadeVagasDisponiveis(central.getQuantidadeVagasDisponiveis()-1);
-		central.salvarCentral();
-//		daoFuncionario.atualizar(matricula, funcionario);
+		central.salvar();
+//		funcionarioService.atualizar(matricula, funcionario);
 		
 	}
 

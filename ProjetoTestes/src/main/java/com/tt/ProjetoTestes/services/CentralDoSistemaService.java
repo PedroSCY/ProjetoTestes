@@ -13,23 +13,19 @@ public class CentralDoSistemaService {
 	@Autowired
 	private CentralDoSistemaRepository centralDoSistemaRepository;
 	
-	private static CentralDoSistema arquivoConfiguracao;
+	private CentralDoSistema arquivoConfiguracao;
 	
 	public CentralDoSistemaService() {
 		try {
 			arquivoConfiguracao = recuperarCentralDoSistemaPeloId();
 		}catch (Exception e) {
 			arquivoConfiguracao = new CentralDoSistema();
-		}
+		}	
 	}
 	
 	public void salvarCentralDoSistema(CentralDoSistema centralDoSistema) {
 		centralDoSistemaRepository.save(centralDoSistema);
 		arquivoConfiguracao = centralDoSistema;
-	}
-	
-	public CentralDoSistema getArquivoConfiguracao() {
-		return arquivoConfiguracao;
 	}
 	
 	public CentralDoSistema recuperarCentralDoSistemaPeloId() throws Exception {
@@ -41,10 +37,13 @@ public class CentralDoSistemaService {
 		throw new Exception("[ERRO] Central não Cadastrada");
 	}
 
-	public static CentralDoSistema getInstance() {
-		CentralDoSistemaService CSSTemp = new CentralDoSistemaService();
-		CentralDoSistema CSTemp = CSSTemp.getArquivoConfiguracao();
-		return CSTemp;
+	public CentralDoSistema getInstance() {
+		try {
+			arquivoConfiguracao = recuperarCentralDoSistemaPeloId();
+		}catch (Exception e) {
+			arquivoConfiguracao = new CentralDoSistema();
+		}	
+		return arquivoConfiguracao;
 	}
 	
 }

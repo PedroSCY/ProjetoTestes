@@ -1,6 +1,8 @@
 package com.tt.ProjetoTestes.services;
 
+import java.util.LinkedHashSet;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -61,6 +63,18 @@ public class FuncionarioService {
 	 */
 	public void excluirTudo() {
 		funcionarioRepository.deleteAll();
+	}
+	
+	
+	public void FuncionarioNaoExiste(long cpf, long matricula) throws Exception {
+		if(verificarExistenciaMatricula(matricula) || verificarExistenciaCPF(cpf)) {
+			throw new Exception("Funcionário existente");
+		}
+	}
+	
+	public Set<Funcionario> consultarTodos() {
+		Set<Funcionario> funcionarios = new LinkedHashSet<Funcionario>(funcionarioRepository.findAll());
+		return funcionarios;
 	}
 	
 	/**

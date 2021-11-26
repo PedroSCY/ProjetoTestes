@@ -13,7 +13,7 @@ import com.tt.ProjetoTestes.util.CentralDoSistema;
 
 
 
-public class DAOCentralDoSistema {
+public class DAOCentralDoSistema1 {
 	
 	
 	private CentralDoSistema arquivoConfiguracao;

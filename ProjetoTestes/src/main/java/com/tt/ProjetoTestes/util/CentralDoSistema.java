@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.tt.ProjetoTestes.repositorys.CentralDoSistemaRepository;
+import com.tt.ProjetoTestes.services.CentralDoSistemaService;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,10 +22,12 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "TB_CENTRALDOSISTEMA")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class CentralDoSistema {
-
+	
+	@Autowired
+	private static CentralDoSistemaService centralDoSistemaService;
+	
 	@Id
 	@Column(name = "ID")
 	private int id = 1; 
@@ -50,4 +56,24 @@ public class CentralDoSistema {
 	@Column(name = "QUANTIDADEVAGASDISPONIVEIS")
 	private int quantidadeVagasDisponiveis;
 
+	public void salvar() {
+		centralDoSistemaService.salvarCentralDoSistema(this);
+	}
+	
+	public static CentralDoSistema getInstance() {
+		return centralDoSistemaService.getInstance();
+	}
+
+	public CentralDoSistema(float valorBase, float valorPorHoraExtra, String cNPJ, String agenciaBancaria,
+			String numeroAgencia, String numeroContaEstacionamento, String variacao, int quantidadeVagasDisponiveis) {
+		super();
+		this.valorBase = valorBase;
+		this.valorPorHoraExtra = valorPorHoraExtra;
+		CNPJ = cNPJ;
+		this.agenciaBancaria = agenciaBancaria;
+		this.numeroAgencia = numeroAgencia;
+		this.numeroContaEstacionamento = numeroContaEstacionamento;
+		this.variacao = variacao;
+		this.quantidadeVagasDisponiveis = quantidadeVagasDisponiveis;
+	}
 }
