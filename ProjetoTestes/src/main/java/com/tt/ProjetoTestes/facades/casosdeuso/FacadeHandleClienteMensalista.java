@@ -15,19 +15,13 @@ import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
 @Component
 public class FacadeHandleClienteMensalista {
 
-//	private ClienteMensalistaService dAOClienteMensalista;
 
 	@Autowired
 	private ClienteMensalistaService clienteMensalistaService;
 
 	@Autowired
 	private ClienteMensalista clienteMensalista;
-	
-	public FacadeHandleClienteMensalista() {
-		
-		clienteMensalistaService = new ClienteMensalistaService();
-	}
-	
+
 
 	//TODO - atualizar UML
 	public void registrarCredito(long matricula, long cpf, float valorCreditado) throws Exception {

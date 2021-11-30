@@ -18,7 +18,7 @@ public interface ClienteMensalistaRepository extends JpaRepository<ClienteMensal
 	public Optional<ClienteMensalista> findById(long id);
 	
 	// buscar pessoa pelo CPF
-	public List<ClienteMensalista> findByCPF(long CPF);
+	public List<ClienteMensalista> findByCpf(long cpf);
 
 	public List<ClienteMensalista> findByEmail(String email);
 	

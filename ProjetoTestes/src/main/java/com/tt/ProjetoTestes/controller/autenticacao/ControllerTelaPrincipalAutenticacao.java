@@ -25,7 +25,7 @@ public class ControllerTelaPrincipalAutenticacao {
 	
 	private boolean primeiroAcesso;
 	
-	public ControllerTelaPrincipalAutenticacao(TelaPrincipalAutenticacao tpa) {
+	public void setTela(TelaPrincipalAutenticacao tpa) {
 		telaPrincipalAutenticacao = tpa;
 	}
 	

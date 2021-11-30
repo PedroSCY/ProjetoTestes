@@ -2,7 +2,6 @@ package com.tt.ProjetoTestes.services;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tt.ProjetoTestes.repositorys.CentralDoSistemaRepository;
@@ -11,7 +10,6 @@ import com.tt.ProjetoTestes.util.CentralDoSistema;
 @Service
 public class CentralDoSistemaService {
 
-	@Autowired
 	private CentralDoSistemaRepository centralDoSistemaRepository;
 	
 	private CentralDoSistema arquivoConfiguracao;
@@ -43,19 +41,19 @@ public class CentralDoSistemaService {
 		return arquivoConfiguracao;
 	}
 	
-//	public static void main (String[]args ) {
-//		
-//		CentralDoSistemaService centralDoSistemaService = new CentralDoSistemaService();
-//		
-//		CentralDoSistema cds = centralDoSistemaService.getInstance();
-//		
-//		cds.setValorBase(5);
-//		
-//		centralDoSistemaService.salvarCentralDoSistema(cds);
-//		
-//		System.out.println(cds.getValorBase());
-//		
-//		System.out.println(centralDoSistemaService.getInstance().getValorBase());
-//	}
+	public static void main (String[]args ) {
+		
+		CentralDoSistemaService centralDoSistemaService = new CentralDoSistemaService();
+		
+		CentralDoSistema cds = centralDoSistemaService.getInstance();
+		
+		cds.setValorBase(5);
+		
+		centralDoSistemaService.salvarCentralDoSistema(cds);
+		
+		System.out.println(cds.getValorBase());
+		
+		System.out.println(centralDoSistemaService.getInstance().getValorBase());
+	}
 	
 }

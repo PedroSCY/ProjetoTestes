@@ -14,7 +14,6 @@ public class ClienteMensalistaService {
 
 	@Autowired
 	private ClienteMensalistaRepository clienteMensalistaRepository;
-		
 	
 	/**
 	 * Esse método salva ( Adiciona ao banco de dados) um unico objeto clienteMensalista por vez. 
@@ -97,8 +96,8 @@ public class ClienteMensalistaService {
 	 * @throws Exception caso nehnum clienteMensalista seja encontrado.
 	 */
 	public ClienteMensalista recuperarPeloCPF(long CPF) throws Exception {
-		if(clienteMensalistaRepository.findByCPF(CPF).size() >=1) 
-			return (ClienteMensalista) clienteMensalistaRepository.findByCPF(CPF);
+		if(clienteMensalistaRepository.findByCpf(CPF).size() >=1) 
+			return (ClienteMensalista) clienteMensalistaRepository.findByCpf(CPF);
 		
 		throw new Exception("[ERRO] CPF: " + CPF + " Não Cadastrado");
 	}

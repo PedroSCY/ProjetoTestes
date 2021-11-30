@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.tt.ProjetoTestes.controller.autenticacao.ControllerTelaPrincipalAutenticacao;
@@ -33,7 +34,9 @@ public class TelaPrincipalAutenticacao extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Autowired
 	private ControllerTelaPrincipalAutenticacao controllerTelaPrincipalAutenticacao;
+	
 	private boolean isPrimeiroAcesso; 
 	private JButton btnAutenticacao;
 	private FabricaTela fabricaTelaCadastro;
@@ -42,7 +45,7 @@ public class TelaPrincipalAutenticacao extends JFrame {
 	private TelaPrincipalAutenticacao telaPrincipalAutenticacao = this;
 	
 	public TelaPrincipalAutenticacao() {
-		controllerTelaPrincipalAutenticacao = new ControllerTelaPrincipalAutenticacao(this);
+		controllerTelaPrincipalAutenticacao.setTela(this);;
 		isPrimeiroAcesso = controllerTelaPrincipalAutenticacao.isPrimeiroAcesso();
 		fabricaTelaCadastro = new FabricaTelaSwing();
 		adicionarConfiguracoesBasicas();

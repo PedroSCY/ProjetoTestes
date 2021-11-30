@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import com.tt.ProjetoTestes.facades.casosdeuso.FacadeCRUDFuncionarios;
 
 
+
 @SpringBootApplication
 public class ProjetoTestesApplication implements CommandLineRunner{
 
@@ -28,13 +29,13 @@ public class ProjetoTestesApplication implements CommandLineRunner{
 	public void run(String... args)  {
 //		new TelaPrincipalAutenticacao(); 
 		
-		FacadeCRUDFuncionarios ffun = new FacadeCRUDFuncionarios();
-		
-		try {
-			ffun.cadastrarNovoFuncionario( Long.parseLong("201915020025") , "pedro", "pedro@user.com", "senha1", Long.parseLong("10944351476") , true);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+//		FacadeCRUDFuncionarios ffun = new FacadeCRUDFuncionarios();
+//		
+//		try {
+//			ffun.cadastrarNovoFuncionario( Long.parseLong("201915020025") , "pedro", "pedro@user.com", "senha1", Long.parseLong("10944351476") , true);
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//		}
 		
 //		System.out.println("Aqui Agora ");
 //		

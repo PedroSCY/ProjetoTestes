@@ -15,7 +15,6 @@ public class FuncionarioService {
 	@Autowired
 	private FuncionarioRepository funcionarioRepository;
 
-	
 	/**
 	 * Esse método salva ( Adiciona ao banco de dados) um unico objeto Funcionario por vez. 
 	 * @param pessoa a ser adicionada ao banco
