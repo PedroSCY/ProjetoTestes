@@ -10,13 +10,10 @@ import com.tt.ProjetoTestes.util.CentralDoSistema;
 public class FacadeCadastroEstacionamento {
 
 	@Autowired
+	private CentralDoSistemaService centralDoSistemaService;
+	
 	private CentralDoSistema centralDoSistema;
 		
-	public FacadeCadastroEstacionamento() {
-
-		centralDoSistema = centralDoSistema.getInstance();
-		
-	}
 	
 	public void cadastrarInformacoesDoEstacionamento(float valorBase, float valorTaxa, String CNPJ, String agencia,
 			String numeroAgencia, String numeroConta, String variacao, int totalVagas) {
@@ -35,12 +32,12 @@ public class FacadeCadastroEstacionamento {
 		centralDoSistema.setValorPorHoraExtra(valorTaxa);
 		centralDoSistema.setQuantidadeVagasDisponiveis(totalVagas);
 		
-		centralDoSistema.salvar();
+		centralDoSistemaService.salvarCentralDoSistema(centralDoSistema);
 	}
 	
 	public String[] getInformacoes() {
 		
-//		centralDoSistema = ;
+		centralDoSistema = centralDoSistemaService.getInstance();
 		
 		String[] informacoes = new String[8];
 		

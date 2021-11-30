@@ -42,6 +42,7 @@ public class Funcionario extends Pessoa {
 		registrosRealizados.add(registroPagamento);
 		
 		return registroPagamento;
+		
 	}
 	
 	public Funcionario(String nome, String email, String senha, long CPF, long matricula, boolean isGerente) {

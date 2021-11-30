@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.tt.ProjetoTestes.persistencia.DAORegistroPagamento;
+import com.tt.ProjetoTestes.services.RegistroPagamentoService;
 import com.tt.ProjetoTestes.view.projetos.relatorios.DiretorMontagem;
 import com.tt.ProjetoTestes.view.projetos.relatorios.MontadorRelatorioSwing;
 
@@ -17,24 +17,24 @@ public class FacadeGerarRelatorios {
 	private DiretorMontagem diretorMontagemRelatorio; 
 
 	@Autowired
-	private DAORegistroPagamento daoRegistroPagamento;
+	private RegistroPagamentoService registroPagamentoService;
 	
 	public FacadeGerarRelatorios() {
 
-		daoRegistroPagamento = new DAORegistroPagamento();
+		registroPagamentoService = new RegistroPagamentoService();
 		diretorMontagemRelatorio = new DiretorMontagem(new MontadorRelatorioSwing());
 	}
 
 	public void criarRelatorioMensal(int mes, int ano) {
 		
-		diretorMontagemRelatorio.gerarRelatorioMensal(daoRegistroPagamento.consultarTodos(), mes, ano);
+		diretorMontagemRelatorio.gerarRelatorioMensal(registroPagamentoService.consultarTodos(), mes, ano);
 		
 		
 	}
 
 	public void criarRelatorioDiario(LocalDateTime data) {
 
-		diretorMontagemRelatorio.gerarRelatorioDiario(daoRegistroPagamento.consultarTodos(), data);
+		diretorMontagemRelatorio.gerarRelatorioDiario(registroPagamentoService.consultarTodos(), data);
 	}
 
 }

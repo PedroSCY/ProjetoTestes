@@ -84,7 +84,7 @@ public class ClienteMensalistaService {
 	}
 	
 	public void ClienteMensalistaNaoExiste(long cpf) throws Exception {
-		if(clienteMensalistaRepository.findByCPF(cpf).size() >=1) {
+		if(!verificarExistenciaCPF(cpf)) {
 			throw new Exception("Cliente Mensalista existente");
 		}	
 	}

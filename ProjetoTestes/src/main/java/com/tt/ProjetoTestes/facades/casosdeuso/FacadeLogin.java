@@ -17,7 +17,6 @@ public class FacadeLogin {
 	
 	public FacadeLogin() {
 		
-		funcionarioService = new FuncionarioService();
 	}
 	
 	//TODO - atualizar no UML

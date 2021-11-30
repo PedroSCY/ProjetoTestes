@@ -7,6 +7,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import org.springframework.stereotype.Component;
+
 import com.tt.ProjetoTestes.controller.autenticacao.ControllerTelaPrincipalAutenticacao;
 import com.tt.ProjetoTestes.util.FactorySwingComponents;
 import com.tt.ProjetoTestes.view.projetos.FabricaTela;
@@ -25,6 +28,7 @@ import com.tt.ProjetoTestes.view.projetos.FabricaTelaSwing;
  * 
  *
  */
+@Component
 public class TelaPrincipalAutenticacao extends JFrame {
 
 	private static final long serialVersionUID = 1L;

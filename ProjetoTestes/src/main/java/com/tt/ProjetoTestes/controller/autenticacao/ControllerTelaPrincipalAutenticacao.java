@@ -20,6 +20,9 @@ public class ControllerTelaPrincipalAutenticacao {
 	@Autowired
 	private static TelaPrincipalAutenticacao telaPrincipalAutenticacao;
 	
+	@Autowired
+	private ControllerTelaCriarConta controllerTelaCriarConta;
+	
 	private boolean primeiroAcesso;
 	
 	public ControllerTelaPrincipalAutenticacao(TelaPrincipalAutenticacao tpa) {
@@ -27,7 +30,8 @@ public class ControllerTelaPrincipalAutenticacao {
 	}
 	
 	public boolean isPrimeiroAcesso() {
-		return ControllerTelaCriarConta.isPrimeiroAcesso();
+		System.out.println("Chwguei no controller de tela autenticação");
+		return controllerTelaCriarConta.isPrimeiroAcesso();
 		
 	}
 	

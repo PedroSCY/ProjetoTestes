@@ -14,20 +14,12 @@ import com.tt.ProjetoTestes.util.ValidadoraFormatoEmail;
 public class FacadeCRUDFuncionarios {
 
 	@Autowired
-	private Funcionario funcionario;
-	
-	@Autowired
 	private FuncionarioService funcionarioService;
 	
 	@Autowired
 	private FacadeLogin facadeLogin;
-	
-	public FacadeCRUDFuncionarios() {
 
-		funcionarioService = new FuncionarioService();
-		facadeLogin = new FacadeLogin();
-	}
-
+	private Funcionario funcionario;
 
 	public void cadastrarNovoFuncionario( long matriculaFuncionario, String nome, String email, String senha, long cpf, boolean isGerente) throws Exception {
 
@@ -84,6 +76,7 @@ public class FacadeCRUDFuncionarios {
 	}
 
 	public Funcionario[] getTodosOsFuncionarios() {
+		System.out.println("cheguei na facade ");
 		Set<Funcionario> funcionariosRegistrados = funcionarioService.consultarTodos();
 		return funcionariosRegistrados.toArray(new Funcionario[funcionariosRegistrados.size()]);
 	}

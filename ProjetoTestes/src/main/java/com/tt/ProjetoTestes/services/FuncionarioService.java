@@ -67,7 +67,7 @@ public class FuncionarioService {
 	
 	
 	public void FuncionarioNaoExiste(long cpf, long matricula) throws Exception {
-		if(verificarExistenciaMatricula(matricula) || verificarExistenciaCPF(cpf)) {
+		if(!verificarExistenciaMatricula(matricula) || !verificarExistenciaCPF(cpf)) {
 			throw new Exception("Funcionário existente");
 		}
 	}
@@ -98,8 +98,8 @@ public class FuncionarioService {
 	 * @throws Exception caso nehnum funcionario seja encontrado.
 	 */
 	public Funcionario recuperarPeloCPF(long CPF) throws Exception {
-		if(funcionarioRepository.findByCPF(CPF).size() >=1) 
-			return (Funcionario) funcionarioRepository.findByCPF(CPF);
+		if(funcionarioRepository.findByCpf(CPF).size() >=1) 
+			return (Funcionario) funcionarioRepository.findByCpf(CPF);
 		
 		throw new Exception("[ERRO] CPF: " + CPF + " Não Cadastrado");
 	}

@@ -56,14 +56,6 @@ public class CentralDoSistema {
 	@Column(name = "QUANTIDADEVAGASDISPONIVEIS")
 	private int quantidadeVagasDisponiveis;
 
-	public void salvar() {
-		centralDoSistemaService.salvarCentralDoSistema(this);
-	}
-	
-	public static CentralDoSistema getInstance() {
-		return centralDoSistemaService.getInstance();
-	}
-
 	public CentralDoSistema(float valorBase, float valorPorHoraExtra, String cNPJ, String agenciaBancaria,
 			String numeroAgencia, String numeroContaEstacionamento, String variacao, int quantidadeVagasDisponiveis) {
 		super();

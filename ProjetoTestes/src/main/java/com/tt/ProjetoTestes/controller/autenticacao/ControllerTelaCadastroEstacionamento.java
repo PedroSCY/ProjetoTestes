@@ -12,10 +12,6 @@ public class ControllerTelaCadastroEstacionamento {
 	@Autowired
 	private FacadeCadastroEstacionamento facadeCadastroEstacionamento;
 	
-	public ControllerTelaCadastroEstacionamento() {
-		
-		facadeCadastroEstacionamento = new FacadeCadastroEstacionamento();
-	}
 	
 	public void cadastrarInformacoes(String valorBaseText, String valorTaxaText, String CNPJ, String agencia,
 			String numeroAgencia, String numeroConta, String variacao, String totalVagasText) throws Exception{

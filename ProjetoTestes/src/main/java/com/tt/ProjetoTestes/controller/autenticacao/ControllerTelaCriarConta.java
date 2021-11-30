@@ -17,7 +17,7 @@ import com.tt.ProjetoTestes.model.entidades.Funcionario;
 public class ControllerTelaCriarConta {
 
 	@Autowired
-	private static FacadeCRUDFuncionarios facadeCRUDFuncionarios;
+	private FacadeCRUDFuncionarios facadeCRUDFuncionarios;
 	
 	public void cadastrarConta(String nome,long matricula,String login,String senha, String cpf) throws Exception {
 		
@@ -40,7 +40,8 @@ public class ControllerTelaCriarConta {
 	}
 	
 	
-	public static boolean isPrimeiroAcesso() {
+	public boolean isPrimeiroAcesso() {
+		System.out.println("Chwguei no controller de tela criar conta");
 		Funcionario[] funcionarios = facadeCRUDFuncionarios.getTodosOsFuncionarios();
 		
 		if(funcionarios.length == 0)

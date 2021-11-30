@@ -26,7 +26,8 @@ public class ControllerTelaFuncionario {
 		if(posicao < 0) {
 			
 			throw new Exception("Escolha um registro");
-		
+	
+
 		}
 		
 		validarSeENumero(valor);

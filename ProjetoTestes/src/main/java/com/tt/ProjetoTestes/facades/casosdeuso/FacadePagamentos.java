@@ -9,13 +9,14 @@ import org.springframework.stereotype.Component;
 import com.tt.ProjetoTestes.model.entidades.ClienteMensalista;
 import com.tt.ProjetoTestes.model.entidades.Funcionario;
 import com.tt.ProjetoTestes.model.entidades.RegistroPagamento;
-import com.tt.ProjetoTestes.persistencia.DAORegistroPagamento;
+import com.tt.ProjetoTestes.services.CentralDoSistemaService;
 import com.tt.ProjetoTestes.services.ClienteMensalistaService;
 import com.tt.ProjetoTestes.services.FuncionarioService;
+import com.tt.ProjetoTestes.services.RegistroPagamentoService;
 import com.tt.ProjetoTestes.util.CentralDoSistema;
 import com.tt.ProjetoTestes.util.ValidadoraDatas;
 
-//import persistencia.dao.DAORegistroPagamento;
+//import persistencia.dao.RegistroPagamentoService;
 
 @Component
 public class FacadePagamentos {
@@ -27,45 +28,42 @@ public class FacadePagamentos {
 	private RegistroPagamento registroPagamento;
 	
 	@Autowired
-	private DAORegistroPagamento daoRegistroPagamento;
+	private RegistroPagamentoService registroPagementoService;
 
 	@Autowired
 	private FuncionarioService funcionarioService;
 
-//	private DAOCentralDoSistema daoCentralDoSistema;
-
 	@Autowired
 	private ClienteMensalistaService clienteMensalistaService;
 
-	private CentralDoSistema central = CentralDoSistema.getInstance();
+	@Autowired
+	private CentralDoSistemaService central;
 	
 	
 	public FacadePagamentos() {
 		
-		daoRegistroPagamento = new DAORegistroPagamento();
-		funcionarioService = new FuncionarioService();
-//		daoCentralDoSistema = new DAOCentralDoSistema();
-		clienteMensalistaService = new ClienteMensalistaService();
 	}
 
-//	private DAORegistroPagamento dAORegistroPagamento;
+//	private RegistroPagamentoService dAORegistroPagamento;
 
 	public void registrarPagamento(long matricula, float valorPago, long id) throws Exception {
 
 		
 		
 		funcionario = funcionarioService.recuperarPelaMatricula(matricula);
-		registroPagamento = daoRegistroPagamento.consultarRegistro(id);
+		registroPagamento = registroPagementoService.recuperarPorId(id);
 		
 		registroPagamento.setValorPago(valorPago);
 		registroPagamento.setNoEstacionamento(false);
 		registroPagamento.setFuncionario(funcionario);
 		
 				
-		daoRegistroPagamento.atualizar(id, registroPagamento);
+		registroPagementoService.atualizarRegistro(registroPagamento);
 		funcionarioService.atualizarFuncionario(funcionario);
-		central.setQuantidadeVagasDisponiveis(central.getQuantidadeVagasDisponiveis()+1);
-		central.salvar();
+		
+		CentralDoSistema cds = central.getInstance();
+		cds.setQuantidadeVagasDisponiveis(central.getInstance().getQuantidadeVagasDisponiveis()+1);
+		central.salvarCentralDoSistema(cds);
 		
 	}
 	
@@ -85,20 +83,24 @@ public class FacadePagamentos {
 		funcionario = funcionarioService.recuperarPelaMatricula(matricula);
 		registroPagamento = funcionario.registrarPagamento(0, placaVeiculo, funcionario);
 				
-		daoRegistroPagamento.criar(registroPagamento);
+		registroPagementoService.salvarRegistro(registroPagamento);
 	
 		if(verificarVagasDisponiveis() < 1) {
 			throw new Exception("Não há vagas disponíveis");
 		}
-		central.setQuantidadeVagasDisponiveis(central.getQuantidadeVagasDisponiveis()-1);
-		central.salvar();
+		
+		CentralDoSistema cds = central.getInstance();
+		cds.setQuantidadeVagasDisponiveis(central.getInstance().getQuantidadeVagasDisponiveis()-1);
+		central.salvarCentralDoSistema(cds);
+		
+		
 //		funcionarioService.atualizar(matricula, funcionario);
 		
 	}
 
 	public int verificarVagasDisponiveis() {
 		
-		return central.getQuantidadeVagasDisponiveis();
+		return central.getInstance().getQuantidadeVagasDisponiveis();
 		
 	}
 	
@@ -109,11 +111,11 @@ public class FacadePagamentos {
 		float horaTotal = ValidadoraDatas.calcularQuantidadeDeHoraEntreDatas(data, LocalDateTime.now());
 		float horaExtra = horaTotal - 1;
 		
-		return central.getValorBase() + (central.getValorPorHoraExtra()*horaExtra);
+		return central.getInstance().getValorBase() + (central.getInstance().getValorPorHoraExtra()*horaExtra);
 	}
 	
 	public RegistroPagamento[] getTodosOsRegstrosDePagamento() {
-		Set<RegistroPagamento> registrosDePagamento = daoRegistroPagamento.consultarTodos();
+		Set<RegistroPagamento> registrosDePagamento = registroPagementoService.consultarTodos();
 		return registrosDePagamento.toArray(new RegistroPagamento[registrosDePagamento.size()]);
 	}
 	
