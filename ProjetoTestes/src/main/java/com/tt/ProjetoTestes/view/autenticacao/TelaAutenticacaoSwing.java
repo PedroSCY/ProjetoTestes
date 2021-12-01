@@ -14,6 +14,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.tt.ProjetoTestes.controller.autenticacao.ControllerTelaAutenticacao;
 import com.tt.ProjetoTestes.view.projetos.OuvinteFocoJTextField;
 
@@ -25,6 +28,7 @@ import com.tt.ProjetoTestes.view.projetos.OuvinteFocoJTextField;
  * Essa classe é um produto concreto do padrão abstract factory
  *
  */
+@Component
 public class TelaAutenticacaoSwing extends JPanel implements TelaAutenticacao {
 
 	/**
@@ -32,7 +36,9 @@ public class TelaAutenticacaoSwing extends JPanel implements TelaAutenticacao {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Autowired
 	public ControllerTelaAutenticacao controllerTelaAutenticacao;
+	
 	private JTextField emailField;
 	private JPasswordField passwordField;
 	
@@ -63,8 +69,7 @@ public class TelaAutenticacaoSwing extends JPanel implements TelaAutenticacao {
 		}
 	}
 
-	public TelaAutenticacaoSwing() {
-		controllerTelaAutenticacao = new ControllerTelaAutenticacao();
+	public void iniciar() {
 		adicionarPrincipaisConfiguracoes();
 		addCamposDeEntradaTelaAutenticacao();
 		addLabelsTelaAutenticacao();

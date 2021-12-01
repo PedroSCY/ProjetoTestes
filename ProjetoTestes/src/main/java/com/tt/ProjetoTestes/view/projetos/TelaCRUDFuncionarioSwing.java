@@ -9,6 +9,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.tt.ProjetoTestes.controller.projetos.ControllerTelaCRUDFuncionarios;
 
 /**
@@ -18,16 +21,14 @@ import com.tt.ProjetoTestes.controller.projetos.ControllerTelaCRUDFuncionarios;
  * Essa classe é um produto concreto do padrão abstract factory
  *
  */
+@Component
 public class TelaCRUDFuncionarioSwing extends JPanelTelaCadastroSwing implements TelaCRUDFuncionario{
 
 	private static final long serialVersionUID = 1L;
 	private JFormattedTextField campoMatricula;
 	
+	@Autowired
 	private ControllerTelaCRUDFuncionarios controllerTelaCRUDFuncionarios;
-	
-	public TelaCRUDFuncionarioSwing() {	
-		controllerTelaCRUDFuncionarios = new ControllerTelaCRUDFuncionarios();
-	}
 	
 	public class OuvinteDoBotaoGerarRelatorio implements ActionListener{
 

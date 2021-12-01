@@ -31,7 +31,6 @@ public class ControllerTelaCRUDFuncionarios {
 	@Autowired
 	private FacadeCRUDFuncionarios facadeCRUDFuncionarios;
 	
-	@Autowired
 	private FacadeGerarRelatorios facadeGerarRelatorios;
 	
 	private Funcionario[] funcionarios;

@@ -1,33 +1,41 @@
 package com.tt.ProjetoTestes;
 
-import org.springframework.boot.Banner;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.ApplicationContext;
 
-import com.tt.ProjetoTestes.facades.casosdeuso.FacadeCRUDFuncionarios;
+import com.tt.ProjetoTestes.view.autenticacao.TelaPrincipalAutenticacao;
+
+
 
 
 
 @SpringBootApplication
 public class ProjetoTestesApplication implements CommandLineRunner{
 
+	@Autowired
+	TelaPrincipalAutenticacao telaPrincipalAutenticacao;
+	
+//	public static void main(String[] args) {
+//		ApplicationContext contexto = new SpringApplicationBuilder(ProjetoTestesApplication.class)
+//				.web(WebApplicationType.NONE)
+//				.headless(false)
+//				.bannerMode(Banner.Mode.OFF)
+//				.run(args);
+//		SpringApplication.run(ProjetoTestesApplication.class, args);
+//	}
+	
 	public static void main(String[] args) {
-		ApplicationContext contexto = new SpringApplicationBuilder(ProjetoTestesApplication.class)
-				.web(WebApplicationType.NONE)
-				.headless(false)
-				.bannerMode(Banner.Mode.OFF)
-				.run(args);
-		SpringApplication.run(ProjetoTestesApplication.class, args);
+		System.setProperty("java.awt.headless", "false");
+		SpringApplication.run(ProjetoTestesApplication.class, args);		
 	}
 	
 	
 	@Override
 	public void run(String... args)  {
-//		new TelaPrincipalAutenticacao(); 
+		System.out.println("deu certo finalmente");
+		telaPrincipalAutenticacao.Iniciar();
 		
 //		FacadeCRUDFuncionarios ffun = new FacadeCRUDFuncionarios();
 //		

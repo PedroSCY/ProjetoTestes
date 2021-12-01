@@ -13,12 +13,13 @@ import com.tt.ProjetoTestes.view.autenticacao.TelaPrincipalAutenticacao;
  *  Essa classe é o controller que realiza operações do JFrame TelaPrincipalAutenticacao.
  *  
  */
-
 @Controller
 public class ControllerTelaPrincipalAutenticacao {
 	
-	@Autowired
 	private static TelaPrincipalAutenticacao telaPrincipalAutenticacao;
+	
+	@Autowired
+	private TelaCadastroEstacionamento telaCadastroEstacionamento;
 	
 	@Autowired
 	private ControllerTelaCriarConta controllerTelaCriarConta;
@@ -30,7 +31,6 @@ public class ControllerTelaPrincipalAutenticacao {
 	}
 	
 	public boolean isPrimeiroAcesso() {
-		System.out.println("Chwguei no controller de tela autenticação");
 		return controllerTelaCriarConta.isPrimeiroAcesso();
 		
 	}
@@ -45,7 +45,7 @@ public class ControllerTelaPrincipalAutenticacao {
 	}
 	
 	public void proximaTela(){
-		new TelaCadastroEstacionamento();
+		telaCadastroEstacionamento.Iniciar();;
 	}
 	
 	public boolean getPrimeiroAcesso() {

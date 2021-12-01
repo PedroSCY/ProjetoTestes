@@ -12,6 +12,8 @@ public class ControllerTelaCadastroEstacionamento {
 	@Autowired
 	private FacadeCadastroEstacionamento facadeCadastroEstacionamento;
 	
+	@Autowired
+	private TelaPrincipalAutenticacao telaPrincipalAutenticacao;
 	
 	public void cadastrarInformacoes(String valorBaseText, String valorTaxaText, String CNPJ, String agencia,
 			String numeroAgencia, String numeroConta, String variacao, String totalVagasText) throws Exception{
@@ -40,12 +42,10 @@ public class ControllerTelaCadastroEstacionamento {
 	}
 	
 	public void proximaTela() {
-		new TelaPrincipalAutenticacao();
-		
+		telaPrincipalAutenticacao.Iniciar();
 	}
 	 
-	
-	
+
 	
 	private void validarSeENumero(String valor) throws Exception {
 		if(!valor.matches("^[0-9]*[.]{0,1}[0-9]*$")) {

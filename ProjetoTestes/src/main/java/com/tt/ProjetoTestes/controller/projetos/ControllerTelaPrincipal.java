@@ -16,23 +16,22 @@ import com.tt.ProjetoTestes.view.projetos.TelaPrincipal;
 @Controller
 public class ControllerTelaPrincipal {
 	
-	@Autowired
 	private TelaPrincipal telaprincipal;
+	
+	@Autowired
+	private TelaPrincipalAutenticacao telaPrincipalAutenticacao;
 	
 //	private RegistradorSessaoLogin registradorSessaoLogin = RegistradorSessaoLogin.getInstance();
 	
-	public ControllerTelaPrincipal(TelaPrincipal telaprincipa){
+	public void setTela(TelaPrincipal telaprincipa){
 		this.telaprincipal = telaprincipa;
 	}
 	
 	public void fazerLogoff() {
 		telaprincipal.dispose();
-		new TelaPrincipalAutenticacao();
+		telaPrincipalAutenticacao.Iniciar();
 	}
 	
-//	public void voltaPraTelaPonto() {
-//		
-//	}
 	
 	
 	

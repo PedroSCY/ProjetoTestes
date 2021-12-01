@@ -9,6 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.tt.ProjetoTestes.controller.projetos.ControllerTelaPrincipal;
 import com.tt.ProjetoTestes.view.autenticacao.TelaCadastroEstacionamento;
 
@@ -23,6 +26,7 @@ import com.tt.ProjetoTestes.view.autenticacao.TelaCadastroEstacionamento;
  * dessa forma posiibilitando a esse usuário acesso a uma parte da tela principal.
  *
  */
+@Component
 public class TelaPrincipal extends JFrame{
 	
 	/**
@@ -30,7 +34,15 @@ public class TelaPrincipal extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Autowired
 	private ControllerTelaPrincipal controllerTelaPrincipal;
+	
+	@Autowired
+	private FabricaTelaSwing fabricaTelaSwing;
+	
+	@Autowired
+	private TelaCadastroEstacionamento telaCadastroEstacionamento;
+	
 	private TelaPrincipal telaPrincipal = this;
 	private JButton btnFazerLogoff,btnAtualizarEstacionamento, btnCadastrarEdital, btnCadastrarProjeto, btnCadastrarGrupo, btnVoltar, btnAdicionar, btnRemover, btnAtualizar;
 	private FabricaTela fabricaTela;
@@ -39,8 +51,8 @@ public class TelaPrincipal extends JFrame{
 	private TelaCRUDClientesMensalistas telaCRUDClientesMensalistas;
 	private boolean isAdmin;
 	
-	public TelaPrincipal() {
-		controllerTelaPrincipal = new ControllerTelaPrincipal(telaPrincipal);
+	public void Iniciar() {
+		controllerTelaPrincipal.setTela(telaPrincipal);
 		adicionarConfiguracoesBasicas();
 		adicionarBotoes();
 		setVisible(true);
@@ -145,7 +157,7 @@ public class TelaPrincipal extends JFrame{
 				
 			} else {
 
-				fabricaTela = new FabricaTelaSwing();
+				fabricaTela = fabricaTelaSwing;
 				
 				if(evento.getActionCommand().equals("GERENCIAR FUNCIONARIO")) {
 					
@@ -174,7 +186,7 @@ public class TelaPrincipal extends JFrame{
 				}else if(evento.getActionCommand().equals("ATUALIZAR ESTACIONAMENTO")){
 					
 					telaPrincipal.dispose();
-					new TelaCadastroEstacionamento();
+					telaCadastroEstacionamento.Iniciar();;
 				}
 
 				modificarTamanho(600, 700);
@@ -197,7 +209,7 @@ public class TelaPrincipal extends JFrame{
 	
 	private void criarTelaCadastroProjetos() {
 		
-		fabricaTela = new FabricaTelaSwing();
+		fabricaTela = fabricaTelaSwing;
 		telaFuncionario = fabricaTela.fabricarTelaFuncionario();
 		telaFuncionario.mostrarTelaFuncionario();
 		

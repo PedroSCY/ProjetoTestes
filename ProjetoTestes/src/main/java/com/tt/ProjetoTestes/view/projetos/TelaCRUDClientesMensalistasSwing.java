@@ -10,6 +10,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.tt.ProjetoTestes.controller.projetos.ControllerTelaCRUDClientesMensalistas;
 
 
@@ -20,16 +23,16 @@ import com.tt.ProjetoTestes.controller.projetos.ControllerTelaCRUDClientesMensal
  *Essa classe é um produto concreto do padrão abstract factory
  *
  */
+@Component
 public class TelaCRUDClientesMensalistasSwing extends JPanelTelaCadastroSwing implements TelaCRUDClientesMensalistas {
 
 	private static final long serialVersionUID = 1L;
+	
+	@Autowired
 	private ControllerTelaCRUDClientesMensalistas controllerTelaCRUDClientesMensalistas;
+	
 	private JTextField campoCredito;
 	
-	public TelaCRUDClientesMensalistasSwing() {
-		
-		controllerTelaCRUDClientesMensalistas = new ControllerTelaCRUDClientesMensalistas();
-	}
 	
 	public class OuvintBtnAddCredito implements ActionListener{
 

@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 
 import com.tt.ProjetoTestes.facades.casosdeuso.FacadeCRUDFuncionarios;
 import com.tt.ProjetoTestes.model.entidades.Funcionario;
+import com.tt.ProjetoTestes.view.autenticacao.TelaAutenticacaoSwing;
+import com.tt.ProjetoTestes.view.projetos.FabricaTelaSwing;
 
 /**
  * 
@@ -18,6 +20,9 @@ public class ControllerTelaCriarConta {
 
 	@Autowired
 	private FacadeCRUDFuncionarios facadeCRUDFuncionarios;
+	
+	@Autowired
+	private FabricaTelaSwing fabricaTelaSwing;
 	
 	public void cadastrarConta(String nome,long matricula,String login,String senha, String cpf) throws Exception {
 		
@@ -41,7 +46,6 @@ public class ControllerTelaCriarConta {
 	
 	
 	public boolean isPrimeiroAcesso() {
-		System.out.println("Chwguei no controller de tela criar conta");
 		Funcionario[] funcionarios = facadeCRUDFuncionarios.getTodosOsFuncionarios();
 		
 		if(funcionarios.length == 0)
@@ -52,8 +56,9 @@ public class ControllerTelaCriarConta {
 	}
 	
 //	public void proximaTela() {
-//		ControllerTelaPrincipalAutenticacao.getTelaPrincipalAutenticacao().dispose();
-//		new TelaCadastroEstacionamento();
+//		
+//		fabricaTelaSwing.fabricarTelaAutenticacao();
+//		ControllerTelaPrincipalAutenticacao.encerrarJanela();
 //	}
 	
 

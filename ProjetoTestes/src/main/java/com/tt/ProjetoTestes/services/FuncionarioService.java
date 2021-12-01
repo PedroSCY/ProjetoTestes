@@ -4,6 +4,7 @@ import java.util.LinkedHashSet;
 import java.util.Optional;
 import java.util.Set;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.tt.ProjetoTestes.model.entidades.Funcionario;
@@ -24,6 +25,7 @@ public class FuncionarioService {
 		if(!verificarExistenciaCPF(funcionario.getCpf()) && !verificarExistenciaEmail(funcionario.getEmail())
 		&& !verificarExistenciaMatricula(funcionario.getMatricula())) {
 			
+			System.out.println("cheguei no service");
 			funcionarioRepository.save(funcionario);
 			
 		}else {
@@ -66,7 +68,7 @@ public class FuncionarioService {
 	
 	
 	public void FuncionarioNaoExiste(long cpf, long matricula) throws Exception {
-		if(!verificarExistenciaMatricula(matricula) || !verificarExistenciaCPF(cpf)) {
+		if(verificarExistenciaMatricula(matricula) || verificarExistenciaCPF(cpf)) {
 			throw new Exception("Funcionário existente");
 		}
 	}

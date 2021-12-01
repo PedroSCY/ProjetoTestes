@@ -10,13 +10,10 @@ import com.tt.ProjetoTestes.services.RegistroPagamentoService;
 import com.tt.ProjetoTestes.view.projetos.relatorios.DiretorMontagem;
 import com.tt.ProjetoTestes.view.projetos.relatorios.MontadorRelatorioSwing;
 
-@Component
 public class FacadeGerarRelatorios {
 
-	@Autowired
 	private DiretorMontagem diretorMontagemRelatorio; 
 
-	@Autowired
 	private RegistroPagamentoService registroPagamentoService;
 	
 	public FacadeGerarRelatorios() {

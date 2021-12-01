@@ -13,6 +13,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.tt.ProjetoTestes.controller.autenticacao.ControllerTelaCriarConta;
 import com.tt.ProjetoTestes.view.projetos.OuvinteFocoJTextField;
 
@@ -24,12 +27,14 @@ import com.tt.ProjetoTestes.view.projetos.OuvinteFocoJTextField;
  * Essa classe é um produto concreto do padrão abstract factory
  * 
  */
+@Component
 public class TelaCriarContaSwing extends JPanel implements TelaCriarConta{
-
 	
 	private static final long serialVersionUID = 1L;
-
+	
+	@Autowired
 	private ControllerTelaCriarConta controllerTelaCriarConta;
+	
 	private JTextField nomeField, emailField;
 	private JFormattedTextField matriculaField, cpfField;
 	private JPasswordField passwordField;
@@ -53,6 +58,7 @@ public class TelaCriarContaSwing extends JPanel implements TelaCriarConta{
 				
 					JOptionPane.showMessageDialog(null, "Conta Cadastrada com Sucesso", null, JOptionPane.WARNING_MESSAGE);
 					limparCampos();
+//					controllerTelaCriarConta.proximaTela();
 					
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage(), null, JOptionPane.ERROR_MESSAGE);
@@ -63,8 +69,7 @@ public class TelaCriarContaSwing extends JPanel implements TelaCriarConta{
 	}
 	
 	
-	public TelaCriarContaSwing() {
-		controllerTelaCriarConta = new ControllerTelaCriarConta();
+	public void iniciar() {
 		adicionarPrincipaisConfiguracoes();
 		addCamposDeEntradaTelaCriarConta();
 		addLabelsTelaCriarConta();

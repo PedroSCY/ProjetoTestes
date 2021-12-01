@@ -37,22 +37,28 @@ public class TelaPrincipalAutenticacao extends JFrame {
 	@Autowired
 	private ControllerTelaPrincipalAutenticacao controllerTelaPrincipalAutenticacao;
 	
+	@Autowired
+	private FabricaTelaSwing fabricaTelaSwing;
+	
+	@Autowired
+	private TelaCadastroEstacionamento telaCadastroEstacionamento;
+	
 	private boolean isPrimeiroAcesso; 
 	private JButton btnAutenticacao;
 	private FabricaTela fabricaTelaCadastro;
-	private TelaAutenticacao telaAutenticacao;
 	private TelaCriarConta telaCriarConta;
+	private TelaAutenticacao telaAutenticacao;
 	private TelaPrincipalAutenticacao telaPrincipalAutenticacao = this;
-	
-	public TelaPrincipalAutenticacao() {
+
+
+	public void Iniciar() {
 		controllerTelaPrincipalAutenticacao.setTela(this);;
 		isPrimeiroAcesso = controllerTelaPrincipalAutenticacao.isPrimeiroAcesso();
-		fabricaTelaCadastro = new FabricaTelaSwing();
+		fabricaTelaCadastro = fabricaTelaSwing;
 		adicionarConfiguracoesBasicas();
 		adicionarBotoes();
 		telaInicial();
 		setVisible(true);	
-		
 	}
 	
 	public class OuvinteDosBotoes implements ActionListener{
@@ -76,7 +82,7 @@ public class TelaPrincipalAutenticacao extends JFrame {
 				
 				if(controllerTelaPrincipalAutenticacao.getPrimeiroAcesso()) {
 					telaPrincipalAutenticacao.dispose();
-					new TelaCadastroEstacionamento();
+					telaCadastroEstacionamento.Iniciar();
 				}
 				
 				if(!controllerTelaPrincipalAutenticacao.isPrimeiroAcesso()) {

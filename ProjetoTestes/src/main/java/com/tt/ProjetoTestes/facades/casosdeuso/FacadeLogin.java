@@ -15,9 +15,6 @@ public class FacadeLogin {
 	@Autowired
 	private FuncionarioService funcionarioService;
 	
-	public FacadeLogin() {
-		
-	}
 	
 	//TODO - atualizar no UML
 	public Funcionario fazerLogin(String email, String senha) throws Exception{

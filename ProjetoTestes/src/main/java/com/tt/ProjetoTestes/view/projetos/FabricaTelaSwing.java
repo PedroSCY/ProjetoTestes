@@ -1,5 +1,8 @@
 package com.tt.ProjetoTestes.view.projetos;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.tt.ProjetoTestes.view.autenticacao.TelaAutenticacao;
 import com.tt.ProjetoTestes.view.autenticacao.TelaAutenticacaoSwing;
 import com.tt.ProjetoTestes.view.autenticacao.TelaCriarConta;
@@ -15,28 +18,46 @@ import com.tt.ProjetoTestes.view.autenticacao.TelaCriarContaSwing;
  * Essa classe representa a fabrica concreta do padrão abstract factory
  *
  */
+@Component
 public class FabricaTelaSwing implements FabricaTela{
 
+	@Autowired
+	TelaFuncionarioSwing telaCadastroProjetosSwing;
+	
+	@Autowired
+	TelaCRUDClientesMensalistasSwing telaCadastroGruposSwing;
+
+	@Autowired
+	TelaCRUDFuncionarioSwing telaCadastroEditaisSwing;
+	
+	@Autowired
+	TelaAutenticacaoSwing telaAutenticacao;
+	
+	@Autowired
+	TelaCriarContaSwing telaCriarConta;
+	
+	
 	
 	public TelaFuncionario fabricarTelaFuncionario() {
-		
-		TelaFuncionarioSwing telaCadastroProjetosSwing = new TelaFuncionarioSwing();
-		
 		return telaCadastroProjetosSwing;
 	}
 
 	public TelaCRUDClientesMensalistas fabricarTelaCRUDClientesMensalistas() {
-		
-		TelaCRUDClientesMensalistasSwing telaCadastroGruposSwing = new TelaCRUDClientesMensalistasSwing();
-		
 		return telaCadastroGruposSwing;
 	}
 
 	public TelaCRUDFuncionario fabricarTelaCRUDFuncionarios() {
-		
-		TelaCRUDFuncionarioSwing telaCadastroEditaisSwing = new TelaCRUDFuncionarioSwing();
-		
 		return telaCadastroEditaisSwing;
+	}
+
+	public TelaAutenticacao fabricarTelaAutenticacao() {
+		telaAutenticacao.iniciar();
+		return telaAutenticacao;
+	}
+	
+	public TelaCriarConta fabricarTelaCriarConta() {
+		telaCriarConta.iniciar();
+		return telaCriarConta;
 	}
 	
 //	public TelaJustificarPonto fabricaTelaJustificarPonto() {
@@ -46,19 +67,6 @@ public class FabricaTelaSwing implements FabricaTela{
 //		return telaJustificarPonto;
 //	}
 	
-	public TelaAutenticacao fabricarTelaAutenticacao() {
-		
-		TelaAutenticacaoSwing telaAutenticacao = new TelaAutenticacaoSwing();
-		
-		return telaAutenticacao;
-	}
-
-	public TelaCriarConta fabricarTelaCriarConta() {
-
-		TelaCriarContaSwing telaCriarConta = new TelaCriarContaSwing();
-		
-		return telaCriarConta;
-	}
 
 //	public TelaConfiguracaoAdmin fabricarTelaConfiguracaoAdmin() {
 //

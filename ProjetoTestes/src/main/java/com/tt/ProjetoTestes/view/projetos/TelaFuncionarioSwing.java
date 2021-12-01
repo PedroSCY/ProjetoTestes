@@ -9,6 +9,9 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.tt.ProjetoTestes.controller.projetos.ControllerTelaFuncionario;
 
 /**
@@ -18,11 +21,14 @@ import com.tt.ProjetoTestes.controller.projetos.ControllerTelaFuncionario;
  * Essa classe é um produto concreto do padrão abstract factory
  *
  */
+@Component
 public class TelaFuncionarioSwing extends JPanelTelaCadastroSwing implements TelaFuncionario {
 
 	private static final long serialVersionUID = 1L;
 
+	@Autowired
 	private ControllerTelaFuncionario controllerTelaFuncionario;
+			
 	private String placa;
 	private long matricula;
 	private long CPF;
@@ -33,10 +39,6 @@ public class TelaFuncionarioSwing extends JPanelTelaCadastroSwing implements Tel
 	private JLabel vagas, valor;
 	
 	
-	public  TelaFuncionarioSwing() {
-
-		controllerTelaFuncionario = new ControllerTelaFuncionario();
-	}
 	
 	public class OuvinteDosBotoes implements ActionListener{
 

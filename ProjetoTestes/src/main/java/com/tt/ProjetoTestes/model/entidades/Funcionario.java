@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "TB_FUNCIONARIO")
-@PrimaryKeyJoinColumn(name = "id")
+@PrimaryKeyJoinColumn(name = "ID")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

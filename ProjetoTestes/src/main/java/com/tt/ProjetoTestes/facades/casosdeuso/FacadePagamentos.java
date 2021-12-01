@@ -21,10 +21,8 @@ import com.tt.ProjetoTestes.util.ValidadoraDatas;
 @Component
 public class FacadePagamentos {
 
-	@Autowired
 	private Funcionario funcionario;
 
-	@Autowired
 	private RegistroPagamento registroPagamento;
 	
 	@Autowired
@@ -39,12 +37,6 @@ public class FacadePagamentos {
 	@Autowired
 	private CentralDoSistemaService central;
 	
-	
-	public FacadePagamentos() {
-		
-	}
-
-//	private RegistroPagamentoService dAORegistroPagamento;
 
 	public void registrarPagamento(long matricula, float valorPago, long id) throws Exception {
 

@@ -19,7 +19,6 @@ public class FacadeHandleClienteMensalista {
 	@Autowired
 	private ClienteMensalistaService clienteMensalistaService;
 
-	@Autowired
 	private ClienteMensalista clienteMensalista;
 
 

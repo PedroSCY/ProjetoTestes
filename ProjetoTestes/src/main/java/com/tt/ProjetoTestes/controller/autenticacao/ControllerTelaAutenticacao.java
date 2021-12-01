@@ -1,6 +1,7 @@
 package com.tt.ProjetoTestes.controller.autenticacao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import com.tt.ProjetoTestes.facades.casosdeuso.FacadeLogin;
@@ -19,7 +20,7 @@ import com.tt.ProjetoTestes.view.projetos.TelaPrincipal;
  *  Essa classe é o controller que realiza operações do JPanel TelaAutenticacao.
  *
  */
-@Controller
+@Component
 public class ControllerTelaAutenticacao {
 	
 //	private FacadeCasoDeUso2 facadeCasoDeUso2 = new FacadeCasoDeUso2();
@@ -27,6 +28,9 @@ public class ControllerTelaAutenticacao {
 	
 	@Autowired
 	private FacadeLogin facadeLogin;
+	
+	@Autowired
+	private TelaPrincipal telaPrincipal;
 	
 	private boolean isGerente;
 	
@@ -58,7 +62,7 @@ public class ControllerTelaAutenticacao {
 	
 	public void proximaTela() {
 
-		TelaPrincipal telaPrincipal = new TelaPrincipal();
+		telaPrincipal.Iniciar();
 			
 		telaPrincipal.validarAdminGerente(isGerente);
 		

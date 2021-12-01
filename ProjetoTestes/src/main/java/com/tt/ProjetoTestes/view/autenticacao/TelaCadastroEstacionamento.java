@@ -11,20 +11,23 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.tt.ProjetoTestes.controller.autenticacao.ControllerTelaCadastroEstacionamento;
 import com.tt.ProjetoTestes.view.projetos.OuvinteFocoJTextField;
 
-
+@Component
 public class TelaCadastroEstacionamento extends JFrame{
 
+	@Autowired
 	private ControllerTelaCadastroEstacionamento controllerTelaCadastroEstacionamento;
+	
 	private JTextField valorField, taxaField, cnpjField, nomeAgenciaField, numeroAgenciaField, numeroField, variacaoField, vagasField;
 	private Font fonteParaTextos = new Font("Arial", Font.PLAIN, 15);
 	private TelaCadastroEstacionamento telaCadastroEstacionamento = this;
 	
-	public TelaCadastroEstacionamento() {
-		
-		controllerTelaCadastroEstacionamento = new ControllerTelaCadastroEstacionamento();
+	public void Iniciar() {
 		adicionarConfiguracoesBasicas();
 		addCamposDeEntradaTelaCadastroEstacionamento();
 		addLabelsTelaCadastroEstacionamento();
