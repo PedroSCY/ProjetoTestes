@@ -73,6 +73,7 @@ public class FuncionarioService {
 	 * @throws Exception caso nehnum funcionario seja encontrado.
 	 */
 	public Funcionario recuperarPeloEmail(String email) throws Exception {
+		System.out.println(funcionarioRepository.findByEmail(email));
 		if(funcionarioRepository.findByEmail(email).size() >= 1) 
 			return (Funcionario) funcionarioRepository.findByEmail(email).get(0);
 		
