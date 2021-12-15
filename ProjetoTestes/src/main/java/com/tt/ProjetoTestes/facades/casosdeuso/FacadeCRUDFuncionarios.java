@@ -44,10 +44,9 @@ public class FacadeCRUDFuncionarios {
 //			throw new Exception("Você não é o gerente");
 //		}
 		
-		funcionario = facadeLogin.fazerLogin(email, senha);
+		funcionario = facadeLogin.fazerLogin(email, funcionarioService.recuperarPeloEmail(email).getSenha());
 		
 		funcionario.setNome(nome);
-		funcionario.setEmail(email);
 		funcionario.setSenha(senha);
 		
 		funcionarioService.atualizarFuncionario(funcionario);

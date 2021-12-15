@@ -5,6 +5,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.tt.ProjetoTestes.facades.casosdeuso.FacadeCRUDFuncionarios;
+import com.tt.ProjetoTestes.services.CentralDoSistemaService;
 import com.tt.ProjetoTestes.view.autenticacao.TelaPrincipalAutenticacao;
 
 
@@ -31,16 +33,31 @@ public class ProjetoTestesApplication implements CommandLineRunner{
 		SpringApplication.run(ProjetoTestesApplication.class, args);		
 	}
 	
+	@Autowired
+	CentralDoSistemaService centralDoSistemaService;
+	
+	@Autowired
+	FacadeCRUDFuncionarios crudFuncionarios;
 	
 	@Override
 	public void run(String... args)  {
-		System.out.println("deu certo finalmente");
+		
 		telaPrincipalAutenticacao.Iniciar();
 		
-//		FacadeCRUDFuncionarios ffun = new FacadeCRUDFuncionarios();
-//		
 //		try {
-//			ffun.cadastrarNovoFuncionario( Long.parseLong("201915020025") , "pedro", "pedro@user.com", "senha1", Long.parseLong("10944351476") , true);
+//			crudFuncionarios.cadastrarNovoFuncionario( Long.parseLong("201915020025") , "pedro", "pedro@user.com", "senha1", Long.parseLong("10944351476") , false);
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//		}
+		
+//		try {
+//			crudFuncionarios.removerFuncionario( Long.parseLong("201915020025"));
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//		}
+		
+//		try {
+//			crudFuncionarios.atualizarCadastroDeFuncionario(Long.parseLong("201915020025"), "user2", "pedro@user.com", "senha2", Long.parseLong("10944351476"));
 //		} catch (Exception e) {
 //			System.out.println(e.getMessage());
 //		}

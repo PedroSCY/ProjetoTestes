@@ -56,7 +56,7 @@ public class FuncionarioService {
 	 * @throws Exception Caso não haja funcionario cadastrado com a matricula passada como parametro.
 	 */
 	public void excluirFuncionario(long matricula) throws Exception {
-		funcionarioRepository.delete(recuperarPeloCPF(matricula));
+		funcionarioRepository.delete(recuperarPelaMatricula(matricula));
 	}
 	
 	/**
@@ -112,8 +112,9 @@ public class FuncionarioService {
 	 * @throws Exception caso nehnum funcionario seja encontrado.
 	 */
 	public Funcionario recuperarPelaMatricula(long Matricula) throws Exception {
-		if(funcionarioRepository.findByMatricula(Matricula).size() >= 1)
-			return (Funcionario) funcionarioRepository.findByMatricula(Matricula);
+		if(funcionarioRepository.findByMatricula(Matricula).size() >= 1) {
+			return funcionarioRepository.findByMatricula(Matricula).get(0);
+		}
 		
 		throw new Exception("[ERRO] Matricula: " + Matricula + " Não Cadastrada");
 	}

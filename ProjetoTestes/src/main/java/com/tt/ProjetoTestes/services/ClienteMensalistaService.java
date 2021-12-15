@@ -70,7 +70,7 @@ public class ClienteMensalistaService {
 	 */
 	public ClienteMensalista recuperarPeloEmail(String email) throws Exception {
 		if(clienteMensalistaRepository.findByEmail(email).size() >= 1) 
-			return (ClienteMensalista) clienteMensalistaRepository.findByEmail(email).get(0);
+			return clienteMensalistaRepository.findByEmail(email).get(0);
 		
 		throw new Exception("[ERRO] Email: " + email + " não cadastrado");
 		
@@ -83,7 +83,7 @@ public class ClienteMensalistaService {
 	}
 	
 	public void ClienteMensalistaNaoExiste(long cpf) throws Exception {
-		if(!verificarExistenciaCPF(cpf)) {
+		if(verificarExistenciaCPF(cpf)) {
 			throw new Exception("Cliente Mensalista existente");
 		}	
 	}
@@ -97,7 +97,7 @@ public class ClienteMensalistaService {
 	 */
 	public ClienteMensalista recuperarPeloCPF(long CPF) throws Exception {
 		if(clienteMensalistaRepository.findByCpf(CPF).size() >=1) 
-			return (ClienteMensalista) clienteMensalistaRepository.findByCpf(CPF);
+			return clienteMensalistaRepository.findByCpf(CPF).get(0);
 		
 		throw new Exception("[ERRO] CPF: " + CPF + " Não Cadastrado");
 	}

@@ -1,5 +1,7 @@
 package com.tt.ProjetoTestes.model.entidades;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -28,5 +30,16 @@ public class ClienteMensalista extends Pessoa {
 	public ClienteMensalista(String nome) {
 		super(nome);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (getClass() != obj.getClass())
+			return false;
+		ClienteMensalista other = (ClienteMensalista) obj;
+		return this.getCpf() == other.getCpf() && Objects.equals(this.getEmail(), other.getEmail()) && this.getId() == other.getId();
+	}
+
 
 }

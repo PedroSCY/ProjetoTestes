@@ -59,8 +59,6 @@ public class Funcionario extends Pessoa {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (!super.equals(obj))
-			return false;
 		if (getClass() != obj.getClass())
 			return false;
 		Funcionario other = (Funcionario) obj;

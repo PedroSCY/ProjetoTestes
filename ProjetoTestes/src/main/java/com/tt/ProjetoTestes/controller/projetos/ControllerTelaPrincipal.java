@@ -28,7 +28,8 @@ public class ControllerTelaPrincipal {
 	}
 	
 	public void fazerLogoff() {
-		telaprincipal.dispose();
+//		telaprincipal.dispose();
+		telaPrincipalAutenticacao.dispose();
 		telaPrincipalAutenticacao.Iniciar();
 	}
 	

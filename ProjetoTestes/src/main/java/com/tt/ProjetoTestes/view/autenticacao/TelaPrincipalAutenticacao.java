@@ -52,7 +52,7 @@ public class TelaPrincipalAutenticacao extends JFrame {
 
 
 	public void Iniciar() {
-		controllerTelaPrincipalAutenticacao.setTela(this);;
+		controllerTelaPrincipalAutenticacao.setTela(this);
 		isPrimeiroAcesso = controllerTelaPrincipalAutenticacao.isPrimeiroAcesso();
 		fabricaTelaCadastro = fabricaTelaSwing;
 		adicionarConfiguracoesBasicas();
